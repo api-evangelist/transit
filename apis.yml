@@ -9,9 +9,9 @@ position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Transit
   - Public Transport
   - Real-Time
+  - Transit
 created: '2025-05-02'
 modified: '2026-03-16'
 url: >-
@@ -26,9 +26,9 @@ apis:
       intuitive trip plans.
     humanURL: https://transitapp.com/apis
     tags:
-      - Transit
       - Public Transport
       - Real-Time
+      - Transit
     properties:
       - type: Documentation
         url: https://transitapp.com/apis
