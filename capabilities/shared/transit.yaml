@@ -1,0 +1,352 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Transit API"
+  description: "Real-time public transit data including departures, trip planning, service alerts, and shared mobility across 900 cities in 25 countries."
+  tags:
+    - Public Transit
+    - Real-Time
+    - Trip Planning
+    - GTFS
+    - Multimodal
+    - Mobility
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+binds:
+  - namespace: env
+    keys:
+      TRANSIT_API_KEY: TRANSIT_API_KEY
+
+capability:
+  consumes:
+    - type: http
+      namespace: transit
+      baseUri: https://api-doc.transitapp.com
+      description: "Real-time transit departures, trip planning, and shared mobility data."
+      authentication:
+        type: bearer
+        token: "{{TRANSIT_API_KEY}}"
+      resources:
+        - name: stop-departures
+          path: /public/stop_departures
+          description: "Real-time and scheduled departures for transit stops"
+          operations:
+            - name: get-stop-departures
+              method: GET
+              description: "Get upcoming departures for one or more stops"
+              inputParameters:
+                - name: stop_codes
+                  in: query
+                  type: array
+                  required: true
+                  description: "One or more stop codes"
+                - name: max_departures
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Maximum departures per route"
+                - name: network_id
+                  in: query
+                  type: string
+                  required: false
+                  description: "Filter by network"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: networks
+          path: /public/networks
+          description: "Transit networks and agency data"
+          operations:
+            - name: list-networks
+              method: GET
+              description: "List transit networks, optionally filtered by location"
+              inputParameters:
+                - name: lat
+                  in: query
+                  type: number
+                  required: false
+                  description: "Latitude for proximity filter"
+                - name: lon
+                  in: query
+                  type: number
+                  required: false
+                  description: "Longitude for proximity filter"
+                - name: include_agencies
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "Include agency details"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: routes
+          path: /public/routes
+          description: "Route information for transit networks"
+          operations:
+            - name: list-routes
+              method: GET
+              description: "List all routes for given transit networks"
+              inputParameters:
+                - name: network_ids
+                  in: query
+                  type: array
+                  required: true
+                  description: "Network IDs to get routes for"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: stops
+          path: /public/stops
+          description: "Stop and station data"
+          operations:
+            - name: list-stops
+              method: GET
+              description: "List stops for a transit network"
+              inputParameters:
+                - name: network_id
+                  in: query
+                  type: string
+                  required: true
+                  description: "Network ID"
+                - name: lat
+                  in: query
+                  type: number
+                  required: false
+                  description: "Latitude for proximity filter"
+                - name: lon
+                  in: query
+                  type: number
+                  required: false
+                  description: "Longitude for proximity filter"
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Search radius in meters"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: trip
+          path: /public/trip
+          description: "Multimodal trip planning"
+          operations:
+            - name: plan-trip
+              method: GET
+              description: "Plan a multimodal trip from origin to destination"
+              inputParameters:
+                - name: origin_lat
+                  in: query
+                  type: number
+                  required: true
+                  description: "Origin latitude"
+                - name: origin_lon
+                  in: query
+                  type: number
+                  required: true
+                  description: "Origin longitude"
+                - name: destination_lat
+                  in: query
+                  type: number
+                  required: true
+                  description: "Destination latitude"
+                - name: destination_lon
+                  in: query
+                  type: number
+                  required: true
+                  description: "Destination longitude"
+                - name: time
+                  in: query
+                  type: string
+                  required: false
+                  description: "Departure or arrival time (ISO 8601)"
+                - name: arrive_by
+                  in: query
+                  type: boolean
+                  required: false
+                  description: "Whether time is arrival time"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: alerts
+          path: /public/alerts
+          description: "Service alerts and disruptions"
+          operations:
+            - name: get-service-alerts
+              method: GET
+              description: "Get active service alerts for transit networks"
+              inputParameters:
+                - name: network_ids
+                  in: query
+                  type: array
+                  required: false
+                  description: "Network IDs to filter alerts"
+                - name: route_ids
+                  in: query
+                  type: array
+                  required: false
+                  description: "Route IDs to filter alerts"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+        - name: nearby-vehicles
+          path: /public/nearby_vehicles
+          description: "Real-time vehicle positions and shared mobility"
+          operations:
+            - name: get-nearby-vehicles
+              method: GET
+              description: "Get nearby transit vehicles and shared mobility options"
+              inputParameters:
+                - name: lat
+                  in: query
+                  type: number
+                  required: true
+                  description: "Latitude"
+                - name: lon
+                  in: query
+                  type: number
+                  required: true
+                  description: "Longitude"
+                - name: radius
+                  in: query
+                  type: integer
+                  required: false
+                  description: "Search radius in meters"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: transit-api
+      resources:
+        - path: /v1/stop-departures
+          name: stop-departures
+          description: "Real-time departure information for transit stops"
+          operations:
+            - method: GET
+              name: get-stop-departures
+              description: "Get upcoming departures for transit stops"
+              call: "transit.get-stop-departures"
+              with:
+                stop_codes: "rest.stop_codes"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/networks
+          name: networks
+          operations:
+            - method: GET
+              name: list-networks
+              description: "List available transit networks"
+              call: "transit.list-networks"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/trips
+          name: trips
+          operations:
+            - method: GET
+              name: plan-trip
+              description: "Plan a multimodal trip"
+              call: "transit.plan-trip"
+              with:
+                origin_lat: "rest.origin_lat"
+                origin_lon: "rest.origin_lon"
+                destination_lat: "rest.destination_lat"
+                destination_lon: "rest.destination_lon"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+        - path: /v1/alerts
+          name: alerts
+          operations:
+            - method: GET
+              name: get-service-alerts
+              description: "Get active service alerts"
+              call: "transit.get-service-alerts"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: transit-mcp
+      transport: http
+      tools:
+        - name: get-stop-departures
+          description: "Get real-time departure times for transit stops"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "transit.get-stop-departures"
+          with:
+            stop_codes: "tools.stop_codes"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: plan-trip
+          description: "Plan a multimodal trip with transit and shared mobility"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "transit.plan-trip"
+          with:
+            origin_lat: "tools.origin_lat"
+            origin_lon: "tools.origin_lon"
+            destination_lat: "tools.destination_lat"
+            destination_lon: "tools.destination_lon"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-networks
+          description: "List available transit networks"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "transit.list-networks"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-service-alerts
+          description: "Get active transit service alerts and disruptions"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "transit.get-service-alerts"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-nearby-vehicles
+          description: "Get nearby transit vehicles and shared mobility options"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "transit.get-nearby-vehicles"
+          with:
+            lat: "tools.lat"
+            lon: "tools.lon"
+          outputParameters:
+            - type: object
+              mapping: "$."

@@ -1,19 +1,23 @@
 aid: transit
 name: Transit
 description: >-
-  Transit gathers raw data for trains, buses, bikes (and more) across 300 cities
-  in 16 countries. Their algorithms transform millions of data points into
-  accurate real-time departure times and intuitive trip plans.
+  Transit provides real-time public transit data, trip planning, and multimodal
+  mobility solutions across 900 cities in 25 countries. The platform aggregates
+  data for trains, buses, bikes, scooters, and carshares, offering accurate
+  real-time departure times and intuitive trip planning.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Public Transport
+  - Public Transit
   - Real-Time
-  - Transit
+  - Trip Planning
+  - Multimodal
+  - GTFS
+  - Mobility
 created: '2025-05-02'
-modified: '2026-03-16'
+modified: '2026-05-03'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -21,21 +25,63 @@ apis:
   - aid: transit:transit
     name: Transit API
     description: >-
-      Transit gathers raw data for trains, buses, bikes (and more) across 300
-      cities in 16 countries, providing accurate real-time departure times and
-      intuitive trip plans.
+      The Transit API provides real-time transit departures, wheelchair
+      accessibility details, service alerts, bike and scooter availability,
+      and multimodal trip planning results across 900 cities in 25 countries.
     humanURL: https://transitapp.com/apis
+    baseURL: https://api-doc.transitapp.com
     tags:
-      - Public Transport
+      - Public Transit
       - Real-Time
-      - Transit
+      - Trip Planning
+      - GTFS
+      - Multimodal
+      - Mobility
     properties:
       - type: Documentation
-        url: https://transitapp.com/apis
+        url: https://api-doc.transitapp.com/
+      - type: OpenAPI
+        url: openapi/transit-openapi.yml
+      - type: JSONSchema
+        url: json-schema/transit-stop-schema.json
+      - type: JSONSchema
+        url: json-schema/transit-departure-schema.json
+      - type: JSONStructure
+        url: json-structure/transit-stop-structure.json
+      - type: JSONLD
+        url: json-ld/transit-context.jsonld
+      - type: SpectralRules
+        url: rules/transit-rules.yml
+      - type: NaftikoCapabilities
+        url: capabilities/real-time-transit.yaml
+      - type: Vocabulary
+        url: vocabulary/transit-vocabulary.yml
+    x-features:
+      - Real-time departures for 900+ cities across 25 countries
+      - Wheelchair accessibility information
+      - Service alerts and disruptions
+      - Shared bike, scooter, and carshare availability
+      - Multimodal trip planning combining transit with shared mobility
+      - GTFS static and real-time data support
+      - URL scheme for launching Transit app from partner apps
+      - On-demand transit integration via GOFS
+    x-authentication:
+      type: API Key
+      description: Access keys provided after partner approval via Google Form
+    x-use-cases:
+      - Real-time transit signage at stations and stops
+      - Trip planning platform integration
+      - First/last-mile mobility solutions
+      - Website and app integration for transit agencies
+      - Multimodal journey planning
 common:
   - type: Website
     url: https://transitapp.com/
   - type: Documentation
+    url: https://transitapp.com/apis
+  - type: GitHub
+    url: https://github.com/TransitApp
+  - type: Sign Up
     url: https://transitapp.com/apis
 maintainers:
   - FN: Kin Lane

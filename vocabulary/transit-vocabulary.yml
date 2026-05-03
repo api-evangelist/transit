@@ -1,0 +1,161 @@
+name: Transit Vocabulary
+description: Domain vocabulary for the Transit API covering public transit data, multimodal mobility, and trip planning
+tags:
+  - Public Transit
+  - Mobility
+  - GTFS
+  - Trip Planning
+terms:
+  - term: GTFS
+    label: General Transit Feed Specification
+    definition: Open format for public transportation schedules and associated geographic information
+    related:
+      - GTFS Realtime
+      - GTFS Static
+
+  - term: GTFS Realtime
+    label: GTFS Realtime
+    definition: Protocol buffer-based feed specification for real-time vehicle positions, trip updates, and service alerts
+    related:
+      - Vehicle Position
+      - Trip Update
+      - Service Alert
+
+  - term: Stop
+    label: Transit Stop
+    definition: A physical location where passengers can board or alight from a transit vehicle
+    related:
+      - Route
+      - Departure
+      - Network
+
+  - term: Route
+    label: Transit Route
+    definition: A group of trips displayed to riders as a single service, identified by name or number
+    related:
+      - Stop
+      - Trip
+      - Network
+
+  - term: Trip
+    label: Transit Trip
+    definition: A specific journey made by a vehicle along a route at a scheduled time
+    related:
+      - Route
+      - Stop
+      - Vehicle Position
+
+  - term: Departure
+    label: Departure
+    definition: A scheduled or real-time event of a transit vehicle leaving a stop
+    properties:
+      - scheduled_time
+      - real_time
+      - headsign
+      - wheelchair_accessible
+
+  - term: Network
+    label: Transit Network
+    definition: A collection of routes, stops, and services operated by one or more transit agencies in a geographic area
+    related:
+      - Agency
+      - Route
+      - Stop
+
+  - term: Agency
+    label: Transit Agency
+    definition: An organization responsible for operating public transit services
+    related:
+      - Network
+      - Route
+
+  - term: Headsign
+    label: Headsign
+    definition: Text displayed on a vehicle indicating its destination or route direction
+    related:
+      - Trip
+      - Departure
+
+  - term: Multimodal
+    label: Multimodal Trip
+    definition: A journey that combines multiple modes of transportation such as transit, walking, cycling, or shared mobility
+    related:
+      - Shared Mobility
+      - Trip Planning
+
+  - term: Shared Mobility
+    label: Shared Mobility
+    definition: Short-term access to transportation including bike share, e-scooters, carshare, and ride-hailing
+    related:
+      - Multimodal
+      - First/Last Mile
+
+  - term: First/Last Mile
+    label: First/Last Mile
+    definition: The beginning or ending segment of a transit trip connecting riders to or from transit stops
+    related:
+      - Shared Mobility
+      - Walking
+
+  - term: Real-Time
+    label: Real-Time Data
+    definition: Live transit data including current vehicle positions, predicted arrival/departure times, and active alerts
+    related:
+      - Vehicle Position
+      - GTFS Realtime
+
+  - term: Vehicle Position
+    label: Vehicle Position
+    definition: Real-time geographic location of a transit vehicle on its route
+    related:
+      - Real-Time
+      - Trip
+
+  - term: Service Alert
+    label: Service Alert
+    definition: A notification about disruptions, delays, or changes affecting transit service
+    related:
+      - Network
+      - Route
+
+  - term: Wheelchair Accessible
+    label: Wheelchair Accessible
+    definition: Indicator that a stop or vehicle accommodates passengers with mobility devices
+    related:
+      - Stop
+      - Departure
+
+  - term: GOFS
+    label: General On-Demand Format Specification
+    definition: Lightweight format specification for on-demand transit service providers to define their service
+    related:
+      - On-Demand Transit
+      - GTFS
+
+  - term: Itinerary
+    label: Trip Itinerary
+    definition: A complete trip plan consisting of one or more legs with departure and arrival times
+    related:
+      - Leg
+      - Trip Planning
+
+  - term: Leg
+    label: Trip Leg
+    definition: A single continuous segment of a trip using one mode of transportation
+    related:
+      - Itinerary
+      - Mode
+
+  - term: Mode
+    label: Transportation Mode
+    definition: The type of transportation used for a trip leg (bus, rail, walk, bicycle, scooter, etc.)
+    values:
+      - bus
+      - rail
+      - metro
+      - tram
+      - walk
+      - bicycle
+      - scooter
+      - car
+      - ferry

@@ -1,0 +1,80 @@
+extends: spectral:oas
+rules:
+  transit-operation-summary-title-case:
+    description: All operation summaries must use Title Case
+    severity: warn
+    given: "$.paths[*][*].summary"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[A-Z][a-zA-Z]*(\\s[A-Z][a-zA-Z]*)*$"
+
+  transit-operationid-required:
+    description: All operations must have an operationId
+    severity: error
+    given: "$.paths[*][*]"
+    then:
+      field: operationId
+      function: truthy
+
+  transit-operationid-kebab-case:
+    description: OperationIds should use camelCase
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  transit-tags-required:
+    description: All operations must have tags
+    severity: warn
+    given: "$.paths[*][*]"
+    then:
+      field: tags
+      function: truthy
+
+  transit-coordinates-lat-lon:
+    description: Latitude and longitude parameters should be named lat and lon
+    severity: warn
+    given: "$.paths[*][*].parameters[*].name"
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "^(latitude|longitude|lng|long)$"
+
+  transit-response-200-required:
+    description: All GET operations must have a 200 response
+    severity: error
+    given: "$.paths[*].get.responses"
+    then:
+      field: "200"
+      function: truthy
+
+  transit-api-key-auth:
+    description: API must use apiKey authentication
+    severity: warn
+    given: "$.components.securitySchemes[*]"
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - apiKey
+          - http
+          - oauth2
+
+  transit-stop-codes-plural:
+    description: Stop code query parameters should use plural form stop_codes
+    severity: hint
+    given: "$.paths[*][*].parameters[*][?(@.in=='query' && @.name=='stop_code')]"
+    then:
+      function: falsy
+
+  transit-pagination-limit-param:
+    description: Collection endpoints should support limit parameter for pagination
+    severity: hint
+    given: "$.paths[*].get.parameters[*][?(@.name=='max_departures' || @.name=='limit')]"
+    then:
+      field: schema
+      function: truthy

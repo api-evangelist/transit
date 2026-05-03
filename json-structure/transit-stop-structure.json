@@ -1,0 +1,12 @@
+{
+  "name": "Transit Stop",
+  "description": "Structure of a transit stop in the Transit API",
+  "fields": [
+    {"name": "id", "type": "string", "required": true, "description": "Unique stop identifier"},
+    {"name": "name", "type": "string", "required": true, "description": "Human-readable stop name"},
+    {"name": "lat", "type": "number", "required": true, "description": "Latitude"},
+    {"name": "lon", "type": "number", "required": true, "description": "Longitude"},
+    {"name": "wheelchair_accessible", "type": "boolean", "required": false, "description": "Accessibility flag"},
+    {"name": "routes", "type": "array<string>", "required": false, "description": "Route IDs serving this stop"}
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api-doc.transitapp.com/public/stop_departures?stop_codes=8100001&max_departures=3",
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "departures": [
+        {
+          "route_id": "agency:route:14",
+          "route_name": "14 Mission",
+          "headsign": "Mission Street",
+          "scheduled_time": "2026-05-03T10:15:00Z",
+          "real_time": "2026-05-03T10:17:00Z",
+          "wheelchair_accessible": true,
+          "vehicle_id": "vehicle_1234"
+        },
+        {
+          "route_id": "agency:route:49",
+          "route_name": "49 Van Ness/Mission",
+          "headsign": "Civic Center",
+          "scheduled_time": "2026-05-03T10:22:00Z",
+          "real_time": "2026-05-03T10:22:00Z",
+          "wheelchair_accessible": true,
+          "vehicle_id": "vehicle_5678"
+        },
+        {
+          "route_id": "agency:route:BART",
+          "route_name": "BART Red Line",
+          "headsign": "Millbrae",
+          "scheduled_time": "2026-05-03T10:20:00Z",
+          "real_time": null,
+          "wheelchair_accessible": true,
+          "vehicle_id": null
+        }
+      ]
+    }
+  }
+}

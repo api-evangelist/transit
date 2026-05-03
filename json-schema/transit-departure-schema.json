@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://transitapp.com/schemas/departure",
+  "title": "Transit Departure",
+  "description": "A scheduled or real-time transit departure from a stop",
+  "type": "object",
+  "required": ["route_id", "route_name", "headsign", "scheduled_time"],
+  "properties": {
+    "route_id": {
+      "type": "string",
+      "description": "Unique route identifier"
+    },
+    "route_name": {
+      "type": "string",
+      "description": "Human-readable route name or number"
+    },
+    "headsign": {
+      "type": "string",
+      "description": "Destination display text shown on the vehicle"
+    },
+    "scheduled_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Scheduled departure time in ISO 8601 format"
+    },
+    "real_time": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "Real-time predicted departure time, null if unavailable"
+    },
+    "wheelchair_accessible": {
+      "type": "boolean",
+      "description": "Whether the departing vehicle is wheelchair accessible"
+    },
+    "vehicle_id": {
+      "type": ["string", "null"],
+      "description": "Vehicle identifier for real-time tracking"
+    }
+  }
+}

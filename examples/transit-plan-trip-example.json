@@ -1,0 +1,81 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api-doc.transitapp.com/public/trip?origin_lat=37.7749&origin_lon=-122.4194&destination_lat=37.7869&destination_lon=-122.4077",
+    "headers": {
+      "Authorization": "Bearer YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "itineraries": [
+        {
+          "duration": 1200,
+          "departure_time": "2026-05-03T10:15:00Z",
+          "arrival_time": "2026-05-03T10:35:00Z",
+          "legs": [
+            {
+              "mode": "walk",
+              "distance": 250,
+              "duration": 180,
+              "departure_time": "2026-05-03T10:15:00Z",
+              "arrival_time": "2026-05-03T10:18:00Z",
+              "from_stop": null,
+              "to_stop": {
+                "id": "stop:8100001",
+                "name": "Mission St & 24th St",
+                "lat": 37.7527,
+                "lon": -122.4183,
+                "wheelchair_accessible": true,
+                "routes": ["agency:route:14", "agency:route:49"]
+              },
+              "route": null
+            },
+            {
+              "mode": "bus",
+              "distance": 1800,
+              "duration": 840,
+              "departure_time": "2026-05-03T10:18:00Z",
+              "arrival_time": "2026-05-03T10:32:00Z",
+              "from_stop": {
+                "id": "stop:8100001",
+                "name": "Mission St & 24th St",
+                "lat": 37.7527,
+                "lon": -122.4183,
+                "wheelchair_accessible": true,
+                "routes": ["agency:route:14", "agency:route:49"]
+              },
+              "to_stop": {
+                "id": "stop:8200023",
+                "name": "Market St & Castro",
+                "lat": 37.7626,
+                "lon": -122.4349,
+                "wheelchair_accessible": true,
+                "routes": ["agency:route:F", "agency:route:K"]
+              },
+              "route": {
+                "id": "agency:route:14",
+                "name": "14 Mission",
+                "type": "bus",
+                "color": "008040",
+                "text_color": "FFFFFF",
+                "network_id": "sfmta"
+              }
+            },
+            {
+              "mode": "walk",
+              "distance": 200,
+              "duration": 180,
+              "departure_time": "2026-05-03T10:32:00Z",
+              "arrival_time": "2026-05-03T10:35:00Z",
+              "from_stop": null,
+              "to_stop": null,
+              "route": null
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

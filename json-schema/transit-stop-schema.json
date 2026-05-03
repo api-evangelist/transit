@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://transitapp.com/schemas/stop",
+  "title": "Transit Stop",
+  "description": "A transit stop or station in the Transit API network",
+  "type": "object",
+  "required": ["id", "name", "lat", "lon"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique stop identifier in the format agency:stop:code"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable stop name"
+    },
+    "lat": {
+      "type": "number",
+      "minimum": -90,
+      "maximum": 90,
+      "description": "Latitude of the stop"
+    },
+    "lon": {
+      "type": "number",
+      "minimum": -180,
+      "maximum": 180,
+      "description": "Longitude of the stop"
+    },
+    "wheelchair_accessible": {
+      "type": "boolean",
+      "description": "Whether the stop is wheelchair accessible"
+    },
+    "routes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Route IDs serving this stop"
+    }
+  }
+}
