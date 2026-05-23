@@ -1,0 +1,85 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Transit
+providerId: transit
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Public Transit
+  - Mobility
+  - Freemium
+description: >-
+  FOCUS-aligned FinOps profile for Transit: a freemium developer API
+  (5 calls/minute, 1,500 calls/month free) paired with a B2C $2/month
+  Royale subscription and B2B partner agreements where transit agencies
+  sponsor Royale or pay for higher API throughput.
+sources:
+  - https://transitapp.com/apis
+  - https://transitapp.com/
+  - https://blog.transitapp.com/sustainable-for-the-long-haul/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Transit App Inc.
+serviceCategory: Mobility + Transit Data
+billingModel:
+  pricingCategory: Freemium + Subscription + Negotiated Partner
+  billingFrequency: Monthly / Annual / Negotiated
+  billingCurrency: USD
+  meteringGranularity: Per-API-key (developer) / Per-subscriber (consumer) / Per-contract (partner)
+  invoiceVehicle: App Store / Google Play (consumer); direct invoice (partner agencies)
+focusColumns:
+  BilledCost: 'USD subscription or partner contract amount'
+  EffectiveCost: 'BilledCost minus agency-sponsored discounts on Royale'
+  ListCost: '$2/month for Royale, contact-sales for partner API tiers'
+  ServiceCategory: 'Mobility'
+  ServiceName: 'Transit'
+  SkuId: 'royale-annual, api-free, api-partner'
+  ChargeCategory: 'Usage (API) / Subscription (Royale) / Commitment (partner)'
+  ChargeDescription: 'Transit API call quota, Royale subscription, or sponsored agency program'
+meters:
+  - name: API Calls (Free)
+    metric: request
+    unit: 1
+    granularity: per-key
+    notes: Hard quota at 1,500/month and 5/minute on the published free tier.
+  - name: API Calls (Partner)
+    metric: request
+    unit: contract
+    granularity: per-contract
+    notes: Negotiated volume; no public price list.
+  - name: Royale Subscription
+    metric: subscriber-month
+    unit: 1
+    granularity: per-user
+    notes: $2/month billed annually; free tier available on request or via sponsoring agency.
+  - name: Agency-Sponsored Royale
+    metric: rider-month
+    unit: 1
+    granularity: per-contract
+    notes: Transit agencies (e.g. RTS Rochester, Dayton RTA, Denver RTD, St. Louis Metro Transit, Santa Monica Big Blue Bus) cover Royale for all their riders.
+principles:
+  - name: Teams need to collaborate
+    description: >-
+      Transit's partnership model requires direct collaboration between
+      transit agencies, the partnerships team, and engineering — the
+      free API tier alone cannot serve production signage.
+  - name: Decisions are driven by business value
+    description: >-
+      Pricing kept core navigation free to maximize ridership impact;
+      Royale monetizes power features without gating fundamental utility.
+  - name: Everyone takes ownership for their usage
+    description: >-
+      Per-key API quotas and per-rider subscriptions push usage
+      ownership to the consuming partner and the individual subscriber.
+  - name: A centralized team drives FinOps
+    description: >-
+      A central partnerships function brokers all non-free API
+      contracts and sponsored Royale agreements with transit agencies.

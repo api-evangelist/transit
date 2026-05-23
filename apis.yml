@@ -1,10 +1,13 @@
 aid: transit
 name: Transit
 description: >-
-  Transit provides real-time public transit data, trip planning, and multimodal
-  mobility solutions across 900 cities in 25 countries. The platform aggregates
-  data for trains, buses, bikes, scooters, and carshares, offering accurate
-  real-time departure times and intuitive trip planning.
+  Transit ("The world's most accurate transit app") provides real-time public
+  transit data, multimodal trip planning, and shared mobility across 1,000+
+  cities including New York, Paris, London, and Montreal, partnering with
+  180+ transit agencies. The platform aggregates trains, buses, bikes,
+  scooters, and carshares with crowdsourced GO real-time signals, ships a
+  freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes
+  consumers via the Transit Royale subscription ($2/month billed annually).
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,9 +18,11 @@ tags:
   - Trip Planning
   - Multimodal
   - GTFS
+  - GOFS
   - Mobility
+  - Shared Mobility
 created: '2025-05-02'
-modified: '2026-05-03'
+modified: '2026-05-23'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -25,9 +30,12 @@ apis:
   - aid: transit:transit
     name: Transit API
     description: >-
-      The Transit API provides real-time transit departures, wheelchair
-      accessibility details, service alerts, bike and scooter availability,
-      and multimodal trip planning results across 900 cities in 25 countries.
+      The Transit API delivers real-time transit departures, wheelchair
+      accessibility details, service alerts, bike/scooter/carshare
+      availability, and multimodal trip planning across 1,000+ cities in
+      25 countries. Access is gated by a request form; approved keys get
+      5 calls per minute and 1,500 calls per month free, with higher
+      volumes negotiated through the partnerships team.
     humanURL: https://transitapp.com/apis
     baseURL: https://api-doc.transitapp.com
     tags:
@@ -37,6 +45,7 @@ apis:
       - GTFS
       - Multimodal
       - Mobility
+      - Shared Mobility
     properties:
       - type: Documentation
         url: https://api-doc.transitapp.com/
@@ -56,33 +65,151 @@ apis:
         url: capabilities/real-time-transit.yaml
       - type: Vocabulary
         url: vocabulary/transit-vocabulary.yml
+      - type: Plans
+        url: plans/transit-plans-pricing.yml
+      - type: RateLimits
+        url: rate-limits/transit-rate-limits.yml
+      - type: FinOps
+        url: finops/transit-finops.yml
+      - type: SignUp
+        url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+      - type: GTFSGuidelines
+        url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
     x-features:
-      - Real-time departures for 900+ cities across 25 countries
+      - Real-time departures for 1,000+ cities across 25 countries
+      - Crowdsourced real-time signals via the GO network
       - Wheelchair accessibility information
       - Service alerts and disruptions
       - Shared bike, scooter, and carshare availability
       - Multimodal trip planning combining transit with shared mobility
       - GTFS static and real-time data support
       - URL scheme for launching Transit app from partner apps
-      - On-demand transit integration via GOFS
+      - On-demand transit integration via GOFS (General On-demand Feed Specification)
+      - 180+ transit agency partnerships
     x-authentication:
       type: API Key
-      description: Access keys provided after partner approval via Google Form
+      description: >-
+        Access key sent in the Authorization header; issued only after a
+        Google Form request is reviewed and approved.
+    x-rate-limits:
+      free:
+        perMinute: 5
+        perMonth: 1500
+      partner: contact partnerships team
     x-use-cases:
       - Real-time transit signage at stations and stops
       - Trip planning platform integration
       - First/last-mile mobility solutions
       - Website and app integration for transit agencies
       - Multimodal journey planning
+      - On-demand transit dispatch via GOFS
+  - aid: transit:url-scheme
+    name: Transit URL Scheme
+    description: >-
+      Deep-link URL scheme for launching the Transit mobile app from
+      partner apps and websites. Supports directions and nearby-routes
+      hand-offs without requiring an API key.
+    humanURL: https://transitapp.com/apis
+    baseURL: transit://
+    tags:
+      - Deep Linking
+      - Mobile
+      - URL Scheme
+      - Public Transit
+    properties:
+      - type: Documentation
+        url: https://transitapp.com/apis
+    x-features:
+      - 'transit://directions?from=[location]&to=[location]'
+      - 'transit://routes?q=[location]'
+      - No API key required
+    x-use-cases:
+      - Partner-app hand-off for last-mile navigation
+      - Web map "Open in Transit" buttons
+      - Travel app multimodal routing
 common:
   - type: Website
     url: https://transitapp.com/
   - type: Documentation
     url: https://transitapp.com/apis
+  - type: APIDocumentation
+    url: https://api-doc.transitapp.com/
   - type: GitHub
     url: https://github.com/TransitApp
-  - type: Sign Up
+  - type: Blog
+    url: https://blog.transitapp.com/
+  - type: BlogFeed
+    url: https://blog.transitapp.com/feed/
+  - type: Support
+    url: https://help.transitapp.com/
+  - type: Careers
+    url: https://transitapp.com/careers
+  - type: Press
+    url: https://transitapp.com/press
+  - type: Pricing
     url: https://transitapp.com/apis
+  - type: SignUp
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: ContactSales
+    url: mailto:partners+website@transit.app
+  - type: ContactGeneral
+    url: mailto:info@transit.app
+x-github-repos:
+  - name: GTFS-flex-to-GOFS
+    url: https://github.com/TransitApp/GTFS-flex-to-GOFS
+    description: Converts GTFS-Flex data to the GOFS-lite format
+    language: Python
+  - name: GTFS-blocks-to-transfers
+    url: https://github.com/TransitApp/GTFS-blocks-to-transfers
+    description: Converts GTFS blocks into trip-to-trip transfers using heuristics
+    language: Python
+    stars: 9
+  - name: py-gtfs-loader
+    url: https://github.com/TransitApp/py-gtfs-loader
+    description: Simple Python library to load GTFS feeds
+    language: Python
+    stars: 5
+  - name: gtfsNodeLib
+    url: https://github.com/TransitApp/gtfsNodeLib
+    description: Node.js library for GTFS
+    language: JavaScript
+    stars: 19
+  - name: gtfs-fares-v2-validator
+    url: https://github.com/TransitApp/gtfs-fares-v2-validator
+    description: Validates GTFS fares-v2 datasets
+    language: Python
+    stars: 7
+  - name: gtfs-flex
+    url: https://github.com/TransitApp/gtfs-flex
+    description: Flexible public transportation services as an extension to GTFS
+  - name: gtfs-realtime-bindings
+    url: https://github.com/TransitApp/gtfs-realtime-bindings
+    description: Language bindings generated from the GTFS-realtime protocol buffer spec
+    language: JavaScript
+    stars: 4
+  - name: transitfeed
+    url: https://github.com/TransitApp/transitfeed
+    description: Python library for reading, validating, and writing GTFS feeds
+    language: Python
+  - name: Transit-TV
+    url: https://github.com/TransitApp/Transit-TV
+    description: Uses the Transit API to display next departures for a TV context
+    language: JavaScript
+    stars: 15
+  - name: Transit-NearbyWebWidget
+    url: https://github.com/TransitApp/Transit-NearbyWebWidget
+    description: Web widget showing nearby Transit departures
+    language: JavaScript
+    stars: 1
+  - name: image-upload-transit
+    url: https://github.com/TransitApp/image-upload-transit
+    description: CLI tool for uploading images and videos to Transit's CDN
+    language: Python
+  - name: transit
+    url: https://github.com/TransitApp/transit
+    description: Fork of google/transit (GTFS specification repository)
+    license: Apache-2.0
+    stars: 7
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

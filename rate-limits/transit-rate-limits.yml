@@ -1,0 +1,72 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Transit
+providerId: transit
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Public Transit
+  - Real-Time
+  - Mobility
+description: >-
+  Transit publishes a single documented free-tier limit on the partner API:
+  5 calls per minute and 1,500 calls per month per access key. Limits are
+  scoped to the partner access key issued after the request-form approval.
+  Higher throughput is available only via direct contact with the
+  partnerships team; no published policy describes burst, retry, or
+  idempotency behavior.
+sources:
+  - https://transitapp.com/apis
+  - https://api-doc.transitapp.com/
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  unauthorized: 401
+limits:
+  - name: Per-minute request rate (free tier)
+    scope: key
+    metric: requests_per_minute
+    limit: 5
+    timeFrame: minute
+    notes: >-
+      Applies to every access key issued under the standard free partner
+      tier. Negotiated tiers raise this ceiling.
+  - name: Monthly request quota (free tier)
+    scope: key
+    metric: requests_per_month
+    limit: 1500
+    timeFrame: month
+    notes: >-
+      Hard monthly cap on every standard partner key. Quota resets on
+      the calendar month; production deployments must upgrade.
+  - name: Negotiated partner ceiling
+    scope: key
+    metric: varies
+    limit: 'contact partnerships team for sustained production volume'
+    notes: >-
+      Transit does not publish higher tiers; signage, embedded trip
+      planners, and first/last-mile platforms negotiate limits directly
+      with partners+website@transit.app.
+policies:
+  - name: Approval-gated access
+    description: >-
+      Keys are issued only after the Google Form request is approved;
+      anonymous/self-service signup is not available.
+  - name: Per-key scoping
+    description: >-
+      All published limits apply per access key, not per source IP or
+      per agency. Partners running multiple deployments should request
+      additional keys via the partnerships team.
+  - name: Hard quota at the monthly ceiling
+    description: >-
+      The 1,500 calls/month cap is a hard quota in the free tier; once
+      hit, requests are rejected until the calendar month rolls over
+      or the key is upgraded.
+  - name: Soft retry guidance
+    description: >-
+      Transit publishes no explicit retry/backoff policy; consumers
+      should treat 429 responses as advisory and use exponential
+      backoff with jitter on retries.

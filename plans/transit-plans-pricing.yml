@@ -1,0 +1,105 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Transit
+providerId: transit
+created: '2026-05-23'
+modified: '2026-05-23'
+reconciled: true
+tags:
+  - Public Transit
+  - Real-Time
+  - Trip Planning
+  - Mobility
+  - Freemium
+description: >-
+  Transit operates two distinct commercial surfaces. The Transit API for
+  third-party partners is freemium: approved requesters get up to 5 calls
+  per minute and 1,500 calls per month at no cost, with higher volumes
+  arranged directly with the partnerships team. Consumer monetization is
+  through the Transit Royale subscription ($2/month billed annually) which
+  unlocks features like browsing future departures and lines farther away;
+  several transit agencies sponsor Royale free for their riders.
+sources:
+  - https://transitapp.com/apis
+  - https://blog.transitapp.com/sustainable-for-the-long-haul/
+plans:
+  - id: transit-api-free
+    name: Transit API Free Tier
+    type: freemium
+    description: >-
+      Approved partner key with capped throughput. Sign-up requires
+      submitting the request form; access granted after approval.
+    entries:
+      - label: API Calls
+        name: api_calls_per_minute
+        type: metered
+        metric: request
+        limit: 5
+        timeFrame: minute
+        geo: global
+        unit: 1
+        price: 'free'
+        userMultiplied: false
+      - label: Monthly Call Quota
+        name: api_calls_per_month
+        type: quota
+        metric: request
+        limit: 1500
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'free'
+        userMultiplied: false
+    elements:
+      - name: Real-time transit departures
+      - name: Wheelchair accessibility information
+      - name: Service alerts
+      - name: Bike, scooter and carshare availability
+      - name: Multimodal trip planning
+      - name: URL scheme integration
+  - id: transit-api-partner
+    name: Transit API Partner Tier
+    type: enterprise
+    description: >-
+      Higher-volume access negotiated directly with the partnerships team
+      for production signage deployments, embedded trip planners, and
+      first/last-mile mobility integrations.
+    entries:
+      - label: Negotiated Volume
+        name: negotiated_volume
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'contact sales'
+        userMultiplied: false
+    elements:
+      - name: Custom rate limits
+      - name: Production signage support
+      - name: Embedded trip planning
+      - name: First/last-mile mobility integration
+  - id: transit-royale
+    name: Transit Royale
+    type: subscription
+    description: >-
+      Consumer subscription unlocking premium features in the Transit
+      mobile app while keeping core navigation free for everyone.
+    entries:
+      - label: Royale Annual
+        name: royale_annual
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '$2/month (billed annually)'
+        userMultiplied: true
+    elements:
+      - name: Look up departure times far into the future
+      - name: Browse lines farther away
+      - name: Free for riders of partner agencies (RTS Rochester, Dayton RTA, Denver RTD, St. Louis Metro Transit, Santa Monica Big Blue Bus)
+      - name: Free subscriptions on request for riders unable to afford it
