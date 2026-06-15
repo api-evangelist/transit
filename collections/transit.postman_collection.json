@@ -1,0 +1,1454 @@
+{
+  "item": [
+    {
+      "id": "9d668435-1c7b-460f-8cbb-2179286c9856",
+      "name": "Departures",
+      "description": {
+        "content": "Real-time and scheduled transit departure information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b1531b87-6346-44e7-a0c1-0609c9d362a1",
+          "name": "Get Stop Departures",
+          "request": {
+            "name": "Get Stop Departures",
+            "description": {
+              "content": "Returns upcoming departures for all routes serving one or more stops, with optional real-time information including vehicle locations and predictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "stop_departures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stop_codes",
+                  "value": "<string>",
+                  "description": "(Required) One or more stop codes to get departures for"
+                },
+                {
+                  "disabled": false,
+                  "key": "stop_codes",
+                  "value": "<string>",
+                  "description": "(Required) One or more stop codes to get departures for"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_departures",
+                  "value": "5",
+                  "description": "Maximum number of departures to return per route"
+                },
+                {
+                  "disabled": false,
+                  "key": "network_id",
+                  "value": "<string>",
+                  "description": "Filter departures to a specific network"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c36aa9f4-4756-4fd6-844c-726196d2a8e2",
+              "name": "Successful response with departure times",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"departures\": [\n    {\n      \"route_id\": \"string\",\n      \"route_name\": \"string\",\n      \"headsign\": \"string\",\n      \"scheduled_time\": \"1972-06-12T18:01:46.575Z\",\n      \"real_time\": \"1989-02-15T03:57:35.100Z\",\n      \"wheelchair_accessible\": true,\n      \"vehicle_id\": \"string\"\n    },\n    {\n      \"route_id\": \"string\",\n      \"route_name\": \"string\",\n      \"headsign\": \"string\",\n      \"scheduled_time\": \"1970-07-11T22:44:01.615Z\",\n      \"real_time\": \"1951-07-04T00:10:31.013Z\",\n      \"wheelchair_accessible\": true,\n      \"vehicle_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3116db22-5c3b-4bc4-8662-fb3dab026c92",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec06cbdc-ca52-47c2-928d-1e9ac24a27a9",
+              "name": "Stop not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7c90200-9c91-4394-8fb7-32b84a01f134",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0ef5d28c-251d-4095-afd2-3101c391fcdf",
+      "name": "Trips",
+      "description": {
+        "content": "Multimodal trip planning and results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eecf92bc-0fb8-4ca5-beb0-6194723d5aae",
+          "name": "Plan Trip",
+          "request": {
+            "name": "Plan Trip",
+            "description": {
+              "content": "Plans a multimodal trip from origin to destination, combining public transit with shared mobility options such as bikes, scooters, and carshares.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "trip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "origin_lat",
+                  "value": "<float>",
+                  "description": "(Required) Origin latitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "origin_lon",
+                  "value": "<float>",
+                  "description": "(Required) Origin longitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "destination_lat",
+                  "value": "<float>",
+                  "description": "(Required) Destination latitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "destination_lon",
+                  "value": "<float>",
+                  "description": "(Required) Destination longitude"
+                },
+                {
+                  "disabled": false,
+                  "key": "time",
+                  "value": "<dateTime>",
+                  "description": "Departure or arrival time (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "arrive_by",
+                  "value": "false",
+                  "description": "Whether time represents arrival time"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "87cf8ef5-8379-410d-85ce-83ba07133f5e",
+              "name": "Successful response with trip plans",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "trip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin_lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "origin_lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "destination_lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "destination_lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "arrive_by",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"itineraries\": [\n    {\n      \"duration\": 9670,\n      \"departure_time\": \"1982-09-05T07:24:37.367Z\",\n      \"arrival_time\": \"1991-08-11T05:09:09.980Z\",\n      \"legs\": [\n        {\n          \"mode\": \"tram\",\n          \"distance\": 7282.79630966451,\n          \"duration\": 5469,\n          \"departure_time\": \"1948-03-17T16:00:12.159Z\",\n          \"arrival_time\": \"2025-12-10T02:25:43.781Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 6747.034139014888,\n            \"lon\": 8289.407678604077,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 8663.043249350407,\n            \"lon\": 2162.89646730615,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"ferry\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        },\n        {\n          \"mode\": \"car\",\n          \"distance\": 9694.21146844723,\n          \"duration\": 8683,\n          \"departure_time\": \"1950-10-23T20:01:32.196Z\",\n          \"arrival_time\": \"1978-03-30T08:07:59.366Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 1169.624603984174,\n            \"lon\": 2703.7708253656356,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 5845.893974860916,\n            \"lon\": 5582.4197486348085,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"tram\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"duration\": 7975,\n      \"departure_time\": \"2007-09-26T07:29:40.164Z\",\n      \"arrival_time\": \"1955-06-08T22:47:40.211Z\",\n      \"legs\": [\n        {\n          \"mode\": \"scooter\",\n          \"distance\": 1274.511583822675,\n          \"duration\": 4366,\n          \"departure_time\": \"1963-01-26T20:51:20.201Z\",\n          \"arrival_time\": \"2010-07-26T16:44:00.427Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 3617.295851363623,\n            \"lon\": 1234.8405656276861,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 3440.362980542353,\n            \"lon\": 5240.316951826779,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"tram\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        },\n        {\n          \"mode\": \"walk\",\n          \"distance\": 5150.5820768839085,\n          \"duration\": 56,\n          \"departure_time\": \"1957-01-02T02:48:18.683Z\",\n          \"arrival_time\": \"1952-04-26T15:21:54.664Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 6787.479788527795,\n            \"lon\": 4544.012050128547,\n            \"wheelchair_accessible\": false,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 2098.0538151070314,\n            \"lon\": 3750.5464121381683,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"bus\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "92f3f8d6-fce0-4b4e-b141-4acd2b982c80",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "trip"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "origin_lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "origin_lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "destination_lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "destination_lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "time",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "arrive_by",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "7e1726a6-8ff3-4c17-bf8e-c791eff84f02",
+      "name": "Networks",
+      "description": {
+        "content": "Transit network and agency data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "11c29ecd-f1d1-40f2-a7c9-6eb35b23b786",
+          "name": "List Transit Networks",
+          "request": {
+            "name": "List Transit Networks",
+            "description": {
+              "content": "Returns a list of transit networks available in the Transit system. Optionally filter by geographic coordinates to get networks near a specific location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "networks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "Latitude to filter networks by proximity"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<float>",
+                  "description": "Longitude to filter networks by proximity"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_agencies",
+                  "value": "false",
+                  "description": "Include agency details in response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6208ec38-b048-473a-ba49-cb76d0c10e5b",
+              "name": "Successful response with list of networks",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "include_agencies",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"networks\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"agencies\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"location\": {\n        \"lat\": 3578.784391488271,\n        \"lon\": 7148.717426996665,\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"agencies\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"timezone\": \"string\"\n        }\n      ],\n      \"location\": {\n        \"lat\": 2531.680802748384,\n        \"lon\": 3476.398179617706,\n        \"city\": \"string\",\n        \"country\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a12a0ef-3686-4488-a4f2-462c40100488",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "networks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "include_agencies",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "19b60b29-dd01-474a-bc48-a6f9dd6d7feb",
+      "name": "Routes",
+      "description": {
+        "content": "Route information and schedules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41f5587d-b455-449b-b075-12e985c28f14",
+          "name": "List Routes",
+          "request": {
+            "name": "List Routes",
+            "description": {
+              "content": "Returns all routes for a list of given transit networks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "(Required) Network IDs to get routes for"
+                },
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "(Required) Network IDs to get routes for"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3fc4c559-1426-4c1d-beab-075257ae86c8",
+              "name": "Successful response with route list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"routes\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"bus\",\n      \"color\": \"string\",\n      \"text_color\": \"string\",\n      \"network_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"rail\",\n      \"color\": \"string\",\n      \"text_color\": \"string\",\n      \"network_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "217a67e7-98d8-45eb-9098-d5600970470b",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4eb9c215-09ab-4a59-960a-4308c8f96bde",
+      "name": "Stops",
+      "description": {
+        "content": "Stop and station information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8a2a4bf5-4c00-4670-89d3-906bf8e05d0d",
+          "name": "List Stops",
+          "request": {
+            "name": "List Stops",
+            "description": {
+              "content": "Returns all stops for a given transit network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "stops"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "network_id",
+                  "value": "<string>",
+                  "description": "(Required) Network ID to get stops for"
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "Latitude for proximity filtering"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<float>",
+                  "description": "Longitude for proximity filtering"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "500",
+                  "description": "Search radius in meters"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eac29567-d98d-4336-90b2-b3a0d7db4a8f",
+              "name": "Successful response with stop list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stops"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"stops\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"lat\": 3612.4848788372597,\n      \"lon\": 5630.343406730966,\n      \"wheelchair_accessible\": true,\n      \"routes\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"lat\": 6637.879591698375,\n      \"lon\": 2744.613836214741,\n      \"wheelchair_accessible\": true,\n      \"routes\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0c74bbe-47ea-4710-aa0a-3ebc7897894d",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stops"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b7b8ad72-6053-4640-bd11-beb5c24c081c",
+      "name": "Mobility",
+      "description": {
+        "content": "Shared bikes, scooters, and carshares",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6c7fc1f5-9ea1-40a3-a71f-ef2465c11c11",
+          "name": "Get Nearby Vehicles",
+          "request": {
+            "name": "Get Nearby Vehicles",
+            "description": {
+              "content": "Returns real-time vehicle positions and shared mobility options (bikes, scooters, carshares) near a geographic location.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "nearby_vehicles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<float>",
+                  "description": "(Required) Latitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<float>",
+                  "description": "(Required) Longitude of the location"
+                },
+                {
+                  "disabled": false,
+                  "key": "radius",
+                  "value": "500",
+                  "description": "Search radius in meters"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af15d933-adb5-4338-ab91-966d37f0d476",
+              "name": "Successful response with nearby vehicles and mobility options",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "nearby_vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vehicles\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 4253.829625231264,\n      \"lon\": 9073.86280768093,\n      \"bearing\": 1018.1424703954178,\n      \"route_id\": \"string\",\n      \"trip_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 9671.023887307778,\n      \"lon\": 9367.040565190104,\n      \"bearing\": 8067.064819872599,\n      \"route_id\": \"string\",\n      \"trip_id\": \"string\"\n    }\n  ],\n  \"bikes\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 4544.501154172672,\n      \"lon\": 3630.180684621822,\n      \"battery_level\": 6119,\n      \"provider\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 5218.629157253369,\n      \"lon\": 6439.044044453791,\n      \"battery_level\": 9245,\n      \"provider\": \"string\"\n    }\n  ],\n  \"scooters\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 3187.86599924618,\n      \"lon\": 2567.242530120546,\n      \"battery_level\": 1388,\n      \"provider\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 9636.36623993195,\n      \"lon\": 9934.140552937304,\n      \"battery_level\": 3532,\n      \"provider\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2762fac2-bab8-4358-8224-0abe9ffbb23b",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "nearby_vehicles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<float>"
+                    },
+                    {
+                      "key": "radius",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "8dbeeefb-c730-46e7-852d-5d726ad74164",
+      "name": "Alerts",
+      "description": {
+        "content": "Service alerts and disruptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a19287c1-fa4c-4a27-a4e8-b2117314856a",
+          "name": "Get Service Alerts",
+          "request": {
+            "name": "Get Service Alerts",
+            "description": {
+              "content": "Returns active service alerts and disruptions for one or more transit networks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "Network IDs to get alerts for"
+                },
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "Network IDs to get alerts for"
+                },
+                {
+                  "disabled": false,
+                  "key": "route_ids",
+                  "value": "<string>",
+                  "description": "Route IDs to filter alerts"
+                },
+                {
+                  "disabled": false,
+                  "key": "route_ids",
+                  "value": "<string>",
+                  "description": "Route IDs to filter alerts"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e4ac805f-f1f6-424a-8a00-68dc48f97cea",
+              "name": "Successful response with service alerts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"effect\": \"string\",\n      \"severity\": \"warning\",\n      \"active_periods\": [\n        {\n          \"start\": \"1995-07-05T22:49:08.868Z\",\n          \"end\": \"1992-04-14T12:28:01.501Z\"\n        },\n        {\n          \"start\": \"2018-07-26T23:55:32.168Z\",\n          \"end\": \"1992-08-01T18:09:01.615Z\"\n        }\n      ],\n      \"affected_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"affected_stops\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"effect\": \"string\",\n      \"severity\": \"info\",\n      \"active_periods\": [\n        {\n          \"start\": \"2002-07-01T18:36:50.637Z\",\n          \"end\": \"1967-12-03T00:39:05.833Z\"\n        },\n        {\n          \"start\": \"1974-11-22T15:15:56.334Z\",\n          \"end\": \"1981-05-14T22:11:55.664Z\"\n        }\n      ],\n      \"affected_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"affected_stops\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bc569414-5ee7-4a25-bd34-975cfbdf5dec",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-doc.transitapp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7dccb139-d010-4091-b45d-a8219645ddc2",
+    "name": "Transit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+      "type": "text/plain"
+    }
+  }
+}

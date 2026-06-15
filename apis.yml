@@ -1,13 +1,11 @@
 aid: transit
 name: Transit
 description: >-
-  Transit ("The world's most accurate transit app") provides real-time public
-  transit data, multimodal trip planning, and shared mobility across 1,000+
-  cities including New York, Paris, London, and Montreal, partnering with
-  180+ transit agencies. The platform aggregates trains, buses, bikes,
-  scooters, and carshares with crowdsourced GO real-time signals, ships a
-  freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes
-  consumers via the Transit Royale subscription ($2/month billed annually).
+  Transit ("The world's most accurate transit app") provides real-time public transit data, multimodal trip planning,
+  and shared mobility across 1,000+ cities including New York, Paris, London, and Montreal, partnering with 180+ transit
+  agencies. The platform aggregates trains, buses, bikes, scooters, and carshares with crowdsourced GO real-time
+  signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit
+  Royale subscription ($2/month billed annually).
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -23,19 +21,16 @@ tags:
   - Shared Mobility
 created: '2025-05-02'
 modified: '2026-05-23'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: transit:transit
     name: Transit API
     description: >-
-      The Transit API delivers real-time transit departures, wheelchair
-      accessibility details, service alerts, bike/scooter/carshare
-      availability, and multimodal trip planning across 1,000+ cities in
-      25 countries. Access is gated by a request form; approved keys get
-      5 calls per minute and 1,500 calls per month free, with higher
-      volumes negotiated through the partnerships team.
+      The Transit API delivers real-time transit departures, wheelchair accessibility details, service alerts,
+      bike/scooter/carshare availability, and multimodal trip planning across 1,000+ cities in 25 countries. Access is
+      gated by a request form; approved keys get 5 calls per minute and 1,500 calls per month free, with higher volumes
+      negotiated through the partnerships team.
     humanURL: https://transitapp.com/apis
     baseURL: https://api-doc.transitapp.com
     tags:
@@ -61,8 +56,6 @@ apis:
         url: json-ld/transit-context.jsonld
       - type: SpectralRules
         url: rules/transit-rules.yml
-      - type: NaftikoCapabilities
-        url: capabilities/real-time-transit.yaml
       - type: Vocabulary
         url: vocabulary/transit-vocabulary.yml
       - type: Plans
@@ -88,9 +81,7 @@ apis:
       - 180+ transit agency partnerships
     x-authentication:
       type: API Key
-      description: >-
-        Access key sent in the Authorization header; issued only after a
-        Google Form request is reviewed and approved.
+      description: Access key sent in the Authorization header; issued only after a Google Form request is reviewed and approved.
     x-rate-limits:
       free:
         perMinute: 5
@@ -106,9 +97,8 @@ apis:
   - aid: transit:url-scheme
     name: Transit URL Scheme
     description: >-
-      Deep-link URL scheme for launching the Transit mobile app from
-      partner apps and websites. Supports directions and nearby-routes
-      hand-offs without requiring an API key.
+      Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and
+      nearby-routes hand-offs without requiring an API key.
     humanURL: https://transitapp.com/apis
     baseURL: transit://
     tags:
@@ -120,8 +110,8 @@ apis:
       - type: Documentation
         url: https://transitapp.com/apis
     x-features:
-      - 'transit://directions?from=[location]&to=[location]'
-      - 'transit://routes?q=[location]'
+      - transit://directions?from=[location]&to=[location]
+      - transit://routes?q=[location]
       - No API key required
     x-use-cases:
       - Partner-app hand-off for last-mile navigation
