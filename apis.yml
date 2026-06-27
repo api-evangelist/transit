@@ -64,7 +64,7 @@ apis:
         url: rate-limits/transit-rate-limits.yml
       - type: FinOps
         url: finops/transit-finops.yml
-      - type: SignUp
+      - type: Signup
         url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
       - type: GTFSGuidelines
         url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
@@ -138,7 +138,7 @@ common:
     url: https://transitapp.com/press
   - type: Pricing
     url: https://transitapp.com/apis
-  - type: SignUp
+  - type: Signup
     url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: ContactSales
     url: mailto:partners+website@transit.app
