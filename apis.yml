@@ -118,6 +118,8 @@ apis:
       - Web map "Open in Transit" buttons
       - Travel app multimodal routing
 common:
+  - type: AgenticAccess
+    url: agentic-access/transit-agentic-access.yml
   - type: DomainSecurity
     url: security/transit-domain-security.yml
   - type: Authentication
