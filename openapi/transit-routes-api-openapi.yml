@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Routes API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Routes
+  description: Route information and schedules
+paths:
+  /public/routes:
+    get:
+      operationId: listRoutes
+      summary: List Routes
+      description: Returns all routes for a list of given transit networks.
+      tags:
+      - Routes
+      parameters:
+      - name: network_ids
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        description: Network IDs to get routes for
+      responses:
+        '200':
+          description: Successful response with route list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RoutesResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    Route:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - bus
+          - rail
+          - metro
+          - tram
+          - ferry
+          - cable_car
+          - gondola
+          - funicular
+        color:
+          type: string
+        text_color:
+          type: string
+        network_id:
+          type: string
+    RoutesResponse:
+      type: object
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

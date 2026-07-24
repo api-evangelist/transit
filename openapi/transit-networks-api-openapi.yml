@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Networks API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Networks
+  description: Transit network and agency data
+paths:
+  /public/networks:
+    get:
+      operationId: listNetworks
+      summary: List Transit Networks
+      description: Returns a list of transit networks available in the Transit system. Optionally filter by geographic coordinates to get networks near a specific location.
+      tags:
+      - Networks
+      parameters:
+      - name: lat
+        in: query
+        required: false
+        schema:
+          type: number
+          format: float
+        description: Latitude to filter networks by proximity
+      - name: lon
+        in: query
+        required: false
+        schema:
+          type: number
+          format: float
+        description: Longitude to filter networks by proximity
+      - name: include_agencies
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Include agency details in response
+      responses:
+        '200':
+          description: Successful response with list of networks
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NetworksResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    Location:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        city:
+          type: string
+        country:
+          type: string
+    NetworksResponse:
+      type: object
+      properties:
+        networks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Network'
+    Network:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Network identifier
+        name:
+          type: string
+          description: Network display name
+        agencies:
+          type: array
+          items:
+            $ref: '#/components/schemas/Agency'
+        location:
+          $ref: '#/components/schemas/Location'
+    Agency:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        timezone:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

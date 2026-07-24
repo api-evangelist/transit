@@ -1,0 +1,98 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Stops API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Stops
+  description: Stop and station information
+paths:
+  /public/stops:
+    get:
+      operationId: listStops
+      summary: List Stops
+      description: Returns all stops for a given transit network.
+      tags:
+      - Stops
+      parameters:
+      - name: network_id
+        in: query
+        required: true
+        schema:
+          type: string
+        description: Network ID to get stops for
+      - name: lat
+        in: query
+        required: false
+        schema:
+          type: number
+          format: float
+        description: Latitude for proximity filtering
+      - name: lon
+        in: query
+        required: false
+        schema:
+          type: number
+          format: float
+        description: Longitude for proximity filtering
+      - name: radius
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 500
+        description: Search radius in meters
+      responses:
+        '200':
+          description: Successful response with stop list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StopsResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    Stop:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        wheelchair_accessible:
+          type: boolean
+        routes:
+          type: array
+          items:
+            type: string
+    StopsResponse:
+      type: object
+      properties:
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stop'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

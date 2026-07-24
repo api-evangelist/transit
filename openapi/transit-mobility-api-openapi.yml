@@ -1,0 +1,113 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Mobility API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Mobility
+  description: Shared bikes, scooters, and carshares
+paths:
+  /public/nearby_vehicles:
+    get:
+      operationId: getNearbyVehicles
+      summary: Get Nearby Vehicles
+      description: Returns real-time vehicle positions and shared mobility options (bikes, scooters, carshares) near a geographic location.
+      tags:
+      - Mobility
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Latitude of the location
+      - name: lon
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Longitude of the location
+      - name: radius
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 500
+        description: Search radius in meters
+      responses:
+        '200':
+          description: Successful response with nearby vehicles and mobility options
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NearbyVehiclesResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    MobilityVehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        battery_level:
+          type: integer
+        provider:
+          type: string
+    NearbyVehiclesResponse:
+      type: object
+      properties:
+        vehicles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vehicle'
+        bikes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MobilityVehicle'
+        scooters:
+          type: array
+          items:
+            $ref: '#/components/schemas/MobilityVehicle'
+    Vehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        bearing:
+          type: number
+        route_id:
+          type: string
+        trip_id:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

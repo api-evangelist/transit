@@ -1,0 +1,103 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Departures API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Departures
+  description: Real-time and scheduled transit departure information
+paths:
+  /public/stop_departures:
+    get:
+      operationId: getStopDepartures
+      summary: Get Stop Departures
+      description: Returns upcoming departures for all routes serving one or more stops, with optional real-time information including vehicle locations and predictions.
+      tags:
+      - Departures
+      parameters:
+      - name: stop_codes
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+        description: One or more stop codes to get departures for
+      - name: max_departures
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 5
+        description: Maximum number of departures to return per route
+      - name: network_id
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Filter departures to a specific network
+      responses:
+        '200':
+          description: Successful response with departure times
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StopDeparturesResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+        '404':
+          description: Stop not found
+        '429':
+          description: Rate limit exceeded
+components:
+  schemas:
+    StopDeparturesResponse:
+      type: object
+      properties:
+        departures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Departure'
+    Departure:
+      type: object
+      properties:
+        route_id:
+          type: string
+          description: Unique route identifier
+        route_name:
+          type: string
+          description: Human-readable route name
+        headsign:
+          type: string
+          description: Destination display text
+        scheduled_time:
+          type: string
+          format: date-time
+          description: Scheduled departure time
+        real_time:
+          type: string
+          format: date-time
+          description: Real-time predicted departure time
+        wheelchair_accessible:
+          type: boolean
+          description: Whether vehicle is wheelchair accessible
+        vehicle_id:
+          type: string
+          description: Vehicle identifier for real-time tracking
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

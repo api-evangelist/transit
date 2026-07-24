@@ -1,0 +1,104 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Alerts
+  description: Service alerts and disruptions
+paths:
+  /public/alerts:
+    get:
+      operationId: getServiceAlerts
+      summary: Get Service Alerts
+      description: Returns active service alerts and disruptions for one or more transit networks.
+      tags:
+      - Alerts
+      parameters:
+      - name: network_ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Network IDs to get alerts for
+      - name: route_ids
+        in: query
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+        description: Route IDs to filter alerts
+      responses:
+        '200':
+          description: Successful response with service alerts
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlertsResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    AlertsResponse:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
+    Alert:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        effect:
+          type: string
+        severity:
+          type: string
+          enum:
+          - info
+          - warning
+          - severe
+        active_periods:
+          type: array
+          items:
+            type: object
+            properties:
+              start:
+                type: string
+                format: date-time
+              end:
+                type: string
+                format: date-time
+        affected_routes:
+          type: array
+          items:
+            type: string
+        affected_stops:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval

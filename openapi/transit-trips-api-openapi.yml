@@ -1,0 +1,183 @@
+openapi: 3.0.3
+info:
+  title: Transit Alerts Trips API
+  description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
+  version: v3.0.0
+  contact:
+    name: Transit Partnership Team
+    email: partners+website@transit.app
+    url: https://transitapp.com/apis
+  x-logo:
+    url: https://transitapp.com/images/transit-logo.png
+servers:
+- url: https://api-doc.transitapp.com
+  description: Transit API Production Server
+security:
+- ApiKeyAuth: []
+tags:
+- name: Trips
+  description: Multimodal trip planning and results
+paths:
+  /public/trip:
+    get:
+      operationId: planTrip
+      summary: Plan Trip
+      description: Plans a multimodal trip from origin to destination, combining public transit with shared mobility options such as bikes, scooters, and carshares.
+      tags:
+      - Trips
+      parameters:
+      - name: origin_lat
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Origin latitude
+      - name: origin_lon
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Origin longitude
+      - name: destination_lat
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Destination latitude
+      - name: destination_lon
+        in: query
+        required: true
+        schema:
+          type: number
+          format: float
+        description: Destination longitude
+      - name: time
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Departure or arrival time (ISO 8601)
+      - name: arrive_by
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether time represents arrival time
+      responses:
+        '200':
+          description: Successful response with trip plans
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TripResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+components:
+  schemas:
+    Stop:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        wheelchair_accessible:
+          type: boolean
+        routes:
+          type: array
+          items:
+            type: string
+    TripResponse:
+      type: object
+      properties:
+        itineraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/Itinerary'
+    Route:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - bus
+          - rail
+          - metro
+          - tram
+          - ferry
+          - cable_car
+          - gondola
+          - funicular
+        color:
+          type: string
+        text_color:
+          type: string
+        network_id:
+          type: string
+    Leg:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum:
+          - walk
+          - bus
+          - rail
+          - metro
+          - tram
+          - bicycle
+          - scooter
+          - car
+        distance:
+          type: number
+        duration:
+          type: integer
+        departure_time:
+          type: string
+          format: date-time
+        arrival_time:
+          type: string
+          format: date-time
+        from_stop:
+          $ref: '#/components/schemas/Stop'
+        to_stop:
+          $ref: '#/components/schemas/Stop'
+        route:
+          $ref: '#/components/schemas/Route'
+    Itinerary:
+      type: object
+      properties:
+        duration:
+          type: integer
+          description: Total trip duration in seconds
+        departure_time:
+          type: string
+          format: date-time
+        arrival_time:
+          type: string
+          format: date-time
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: API key provided after partner approval
