@@ -7,9 +7,22 @@ description: >-
   signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit
   Royale subscription ($2/month billed annually).
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/transit.png
 tags:
   - Public Transit
   - Real-Time
@@ -24,99 +37,281 @@ modified: '2026-05-23'
 url: https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: transit:transit
-    name: Transit API
-    description: >-
-      The Transit API delivers real-time transit departures, wheelchair accessibility details, service alerts,
-      bike/scooter/carshare availability, and multimodal trip planning across 1,000+ cities in 25 countries. Access is
-      gated by a request form; approved keys get 5 calls per minute and 1,500 calls per month free, with higher volumes
-      negotiated through the partnerships team.
-    humanURL: https://transitapp.com/apis
-    baseURL: https://api-doc.transitapp.com
-    tags:
-      - Public Transit
-      - Real-Time
-      - Trip Planning
-      - GTFS
-      - Multimodal
-      - Mobility
-      - Shared Mobility
-    properties:
-      - type: Documentation
-        url: https://api-doc.transitapp.com/
-      - type: OpenAPI
-        url: openapi/transit-openapi.yml
-      - type: JSONSchema
-        url: json-schema/transit-stop-schema.json
-      - type: JSONSchema
-        url: json-schema/transit-departure-schema.json
-      - type: JSONStructure
-        url: json-structure/transit-stop-structure.json
-      - type: JSONLD
-        url: json-ld/transit-context.jsonld
-      - type: SpectralRules
-        url: rules/transit-rules.yml
-      - type: Vocabulary
-        url: vocabulary/transit-vocabulary.yml
-      - type: Plans
-        url: plans/transit-plans-pricing.yml
-      - type: RateLimits
-        url: rate-limits/transit-rate-limits.yml
-      - type: FinOps
-        url: finops/transit-finops.yml
-      - type: Signup
-        url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
-      - type: GTFSGuidelines
-        url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
-    x-features:
-      - Real-time departures for 1,000+ cities across 25 countries
-      - Crowdsourced real-time signals via the GO network
-      - Wheelchair accessibility information
-      - Service alerts and disruptions
-      - Shared bike, scooter, and carshare availability
-      - Multimodal trip planning combining transit with shared mobility
-      - GTFS static and real-time data support
-      - URL scheme for launching Transit app from partner apps
-      - On-demand transit integration via GOFS (General On-demand Feed Specification)
-      - 180+ transit agency partnerships
-    x-authentication:
-      type: API Key
-      description: Access key sent in the Authorization header; issued only after a Google Form request is reviewed and approved.
-    x-rate-limits:
-      free:
-        perMinute: 5
-        perMonth: 1500
-      partner: contact partnerships team
-    x-use-cases:
-      - Real-time transit signage at stations and stops
-      - Trip planning platform integration
-      - First/last-mile mobility solutions
-      - Website and app integration for transit agencies
-      - Multimodal journey planning
-      - On-demand transit dispatch via GOFS
-  - aid: transit:url-scheme
-    name: Transit URL Scheme
-    description: >-
-      Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and
-      nearby-routes hand-offs without requiring an API key.
-    humanURL: https://transitapp.com/apis
-    baseURL: transit://
-    tags:
-      - Deep Linking
-      - Mobile
-      - URL Scheme
-      - Public Transit
-    properties:
-      - type: Documentation
-        url: https://transitapp.com/apis
-    x-features:
-      - transit://directions?from=[location]&to=[location]
-      - transit://routes?q=[location]
-      - No API key required
-    x-use-cases:
-      - Partner-app hand-off for last-mile navigation
-      - Web map "Open in Transit" buttons
-      - Travel app multimodal routing
+- aid: transit:url-scheme
+  name: Transit URL Scheme
+  description: >-
+    Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports
+    directions and nearby-routes hand-offs without requiring an API key.
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
+  tags:
+  - Deep Linking
+  - Mobile
+  - URL Scheme
+  - Public Transit
+  properties:
+  - type: Documentation
+    url: https://transitapp.com/apis
+  x-features:
+  - transit://directions?from=[location]&to=[location]
+  - transit://routes?q=[location]
+  - No API key required
+  x-use-cases:
+  - Partner-app hand-off for last-mile navigation
+  - Web map "Open in Transit" buttons
+  - Travel app multimodal routing
+- aid: transit:transit-alerts-api
+  name: Transit Alerts API
+  description: Service alerts and disruptions
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-departures-api
+  name: Transit Departures API
+  description: Real-time and scheduled transit departure information
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Departures
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-departures-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-mobility-api
+  name: Transit Mobility API
+  description: Shared bikes, scooters, and carshares
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Mobility
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-mobility-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-networks-api
+  name: Transit Networks API
+  description: Transit network and agency data
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Networks
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-networks-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-routes-api
+  name: Transit Routes API
+  description: Route information and schedules
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-routes-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-stops-api
+  name: Transit Stops API
+  description: Stop and station information
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Stops
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-stops-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-trips-api
+  name: Transit Trips API
+  description: Multimodal trip planning and results
+  humanURL: https://transitapp.com/apis
+  baseURL: https://api-doc.transitapp.com
+  tags:
+  - Trips
+  properties:
+  - type: OpenAPI
+    url: openapi/transit-trips-api-openapi.yml
+  - type: Documentation
+    url: https://api-doc.transitapp.com/
+  - type: JSONSchema
+    url: json-schema/transit-stop-schema.json
+  - type: JSONSchema
+    url: json-schema/transit-departure-schema.json
+  - type: JSONStructure
+    url: json-structure/transit-stop-structure.json
+  - type: JSONLD
+    url: json-ld/transit-context.jsonld
+  - type: SpectralRules
+    url: rules/transit-rules.yml
+  - type: Vocabulary
+    url: vocabulary/transit-vocabulary.yml
+  - type: Plans
+    url: plans/transit-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/transit-rate-limits.yml
+  - type: FinOps
+    url: finops/transit-finops.yml
+  - type: Signup
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+  - type: GTFSGuidelines
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 common:
   - type: AgenticAccess
     url: agentic-access/transit-agentic-access.yml
