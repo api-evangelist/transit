@@ -1,0 +1,26 @@
+{
+  "provider": "transit",
+  "sources": [
+    "transit-alerts-api-openapi.yml",
+    "transit-departures-api-openapi.yml",
+    "transit-mobility-api-openapi.yml",
+    "transit-networks-api-openapi.yml",
+    "transit-routes-api-openapi.yml",
+    "transit-stops-api-openapi.yml",
+    "transit-trips-api-openapi.yml"
+  ],
+  "outputs": [
+    "transit-alerts-api-openapi.yml",
+    "transit-departures-api-openapi.yml",
+    "transit-mobility-api-openapi.yml",
+    "transit-networks-api-openapi.yml",
+    "transit-routes-api-openapi.yml",
+    "transit-stops-api-openapi.yml",
+    "transit-trips-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
