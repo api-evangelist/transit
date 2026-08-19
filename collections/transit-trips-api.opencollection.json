@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transit Alerts Trips API",
+    "version": "v3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trips",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Plan Trip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-doc.transitapp.com/public/trip",
+            "params": [
+              {
+                "name": "origin_lat",
+                "value": "",
+                "type": "query",
+                "description": "Origin latitude"
+              },
+              {
+                "name": "origin_lon",
+                "value": "",
+                "type": "query",
+                "description": "Origin longitude"
+              },
+              {
+                "name": "destination_lat",
+                "value": "",
+                "type": "query",
+                "description": "Destination latitude"
+              },
+              {
+                "name": "destination_lon",
+                "value": "",
+                "type": "query",
+                "description": "Destination longitude"
+              },
+              {
+                "name": "time",
+                "value": "",
+                "type": "query",
+                "description": "Departure or arrival time (ISO 8601)"
+              },
+              {
+                "name": "arrive_by",
+                "value": "",
+                "type": "query",
+                "description": "Whether time represents arrival time"
+              }
+            ]
+          },
+          "docs": "Plans a multimodal trip from origin to destination, combining public transit with shared mobility options such as bikes, scooters, and carshares."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

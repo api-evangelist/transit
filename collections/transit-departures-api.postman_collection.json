@@ -1,0 +1,342 @@
+{
+  "item": [
+    {
+      "id": "cbf45068-dfab-455e-b524-6dcf8bc6eab2",
+      "name": "Departures",
+      "description": {
+        "content": "Real-time and scheduled transit departure information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c511318c-8d36-43b9-b8b8-98a83738c3a1",
+          "name": "Get Stop Departures",
+          "request": {
+            "name": "Get Stop Departures",
+            "description": {
+              "content": "Returns upcoming departures for all routes serving one or more stops, with optional real-time information including vehicle locations and predictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "stop_departures"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "stop_codes",
+                  "value": "<string>",
+                  "description": "(Required) One or more stop codes to get departures for"
+                },
+                {
+                  "disabled": false,
+                  "key": "stop_codes",
+                  "value": "<string>",
+                  "description": "(Required) One or more stop codes to get departures for"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_departures",
+                  "value": "5",
+                  "description": "Maximum number of departures to return per route"
+                },
+                {
+                  "disabled": false,
+                  "key": "network_id",
+                  "value": "<string>",
+                  "description": "Filter departures to a specific network"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be58221f-4d5e-44b8-b897-a3b49966fec5",
+              "name": "Successful response with departure times",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"departures\": [\n    {\n      \"route_id\": \"string\",\n      \"route_name\": \"string\",\n      \"headsign\": \"string\",\n      \"scheduled_time\": \"1994-11-09T08:09:12.814Z\",\n      \"real_time\": \"1983-09-08T10:05:04.498Z\",\n      \"wheelchair_accessible\": false,\n      \"vehicle_id\": \"string\"\n    },\n    {\n      \"route_id\": \"string\",\n      \"route_name\": \"string\",\n      \"headsign\": \"string\",\n      \"scheduled_time\": \"1969-04-06T21:29:20.732Z\",\n      \"real_time\": \"1977-06-06T19:16:35.105Z\",\n      \"wheelchair_accessible\": false,\n      \"vehicle_id\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f52b28b4-a618-4c23-a4fd-db9e9469653a",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "646bd184-57cc-4cb7-bd94-ba7ef26a8036",
+              "name": "Stop not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "08d3f02b-8b37-4c1a-8a9c-b0f6b93f6003",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "stop_departures"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "stop_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "max_departures",
+                      "value": "5"
+                    },
+                    {
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-doc.transitapp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f54c2450-f2c0-4182-a649-aff19c06b3b4",
+    "name": "Transit Alerts Departures API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "item": [
+    {
+      "id": "b4789385-4fa6-4dd0-9f89-2f1e332eed78",
+      "name": "Alerts",
+      "description": {
+        "content": "Service alerts and disruptions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "82d89dea-fc59-4d2e-89d4-4f381b17964c",
+          "name": "Get Service Alerts",
+          "request": {
+            "name": "Get Service Alerts",
+            "description": {
+              "content": "Returns active service alerts and disruptions for one or more transit networks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "public",
+                "alerts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "Network IDs to get alerts for"
+                },
+                {
+                  "disabled": false,
+                  "key": "network_ids",
+                  "value": "<string>",
+                  "description": "Network IDs to get alerts for"
+                },
+                {
+                  "disabled": false,
+                  "key": "route_ids",
+                  "value": "<string>",
+                  "description": "Route IDs to filter alerts"
+                },
+                {
+                  "disabled": false,
+                  "key": "route_ids",
+                  "value": "<string>",
+                  "description": "Route IDs to filter alerts"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "beab4e0e-b104-49c0-b988-c6250850f0e3",
+              "name": "Successful response with service alerts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"alerts\": [\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"effect\": \"string\",\n      \"severity\": \"severe\",\n      \"active_periods\": [\n        {\n          \"start\": \"2021-01-09T11:52:39.659Z\",\n          \"end\": \"1961-03-02T08:31:54.693Z\"\n        },\n        {\n          \"start\": \"2025-07-25T03:05:49.872Z\",\n          \"end\": \"2014-04-19T15:08:27.835Z\"\n        }\n      ],\n      \"affected_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"affected_stops\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"effect\": \"string\",\n      \"severity\": \"severe\",\n      \"active_periods\": [\n        {\n          \"start\": \"2002-04-01T11:35:29.390Z\",\n          \"end\": \"1982-04-13T21:14:59.615Z\"\n        },\n        {\n          \"start\": \"1948-05-30T07:52:18.868Z\",\n          \"end\": \"1955-12-18T13:26:25.570Z\"\n        }\n      ],\n      \"affected_routes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"affected_stops\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b0afaf17-18c8-4763-aec1-b0e3c8ee29cd",
+              "name": "Unauthorized - invalid or missing API key",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "public",
+                    "alerts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "network_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "route_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-doc.transitapp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "37937e3b-ca24-44f7-8f04-b51c922a880f",
+    "name": "Transit Alerts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+      "type": "text/plain"
+    }
+  }
+}

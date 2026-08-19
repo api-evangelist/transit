@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transit Alerts Departures API",
+    "version": "v3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Departures",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Stop Departures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-doc.transitapp.com/public/stop_departures",
+            "params": [
+              {
+                "name": "stop_codes",
+                "value": "",
+                "type": "query",
+                "description": "One or more stop codes to get departures for"
+              },
+              {
+                "name": "max_departures",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of departures to return per route"
+              },
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "query",
+                "description": "Filter departures to a specific network"
+              }
+            ]
+          },
+          "docs": "Returns upcoming departures for all routes serving one or more stops, with optional real-time information including vehicle locations and predictions."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

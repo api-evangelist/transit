@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transit Alerts Mobility API",
+    "version": "v3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mobility",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Nearby Vehicles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-doc.transitapp.com/public/nearby_vehicles",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the location"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the location"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius in meters"
+              }
+            ]
+          },
+          "docs": "Returns real-time vehicle positions and shared mobility options (bikes, scooters, carshares) near a geographic location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

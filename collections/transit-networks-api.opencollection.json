@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transit Alerts Networks API",
+    "version": "v3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Networks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Transit Networks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-doc.transitapp.com/public/networks",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude to filter networks by proximity"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude to filter networks by proximity"
+              },
+              {
+                "name": "include_agencies",
+                "value": "",
+                "type": "query",
+                "description": "Include agency details in response"
+              }
+            ]
+          },
+          "docs": "Returns a list of transit networks available in the Transit system. Optionally filter by geographic coordinates to get networks near a specific location."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Transit Alerts Stops API",
+    "version": "v3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stops",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Stops",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api-doc.transitapp.com/public/stops",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "query",
+                "description": "Network ID to get stops for"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude for proximity filtering"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude for proximity filtering"
+              },
+              {
+                "name": "radius",
+                "value": "",
+                "type": "query",
+                "description": "Search radius in meters"
+              }
+            ]
+          },
+          "docs": "Returns all stops for a given transit network."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
