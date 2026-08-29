@@ -7,6 +7,18 @@ description: >-
   signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit
   Royale subscription ($2/month billed annually).
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
