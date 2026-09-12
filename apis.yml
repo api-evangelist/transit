@@ -1,11 +1,6 @@
 aid: transit
 name: Transit
-description: >-
-  Transit ("The world's most accurate transit app") provides real-time public transit data, multimodal trip planning,
-  and shared mobility across 1,000+ cities including New York, Paris, London, and Montreal, partnering with 180+ transit
-  agencies. The platform aggregates trains, buses, bikes, scooters, and carshares with crowdsourced GO real-time
-  signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit
-  Royale subscription ($2/month billed annually).
+description: Transit ("The world's most accurate transit app") provides real-time public transit data, multimodal trip planning, and shared mobility across 1,000+ cities including New York, Paris, London, and Montreal, partnering with 180+ transit agencies. The platform aggregates trains, buses, bikes, scooters, and carshares with crowdsourced GO real-time signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit Royale subscription ($2/month billed annually).
 type: Index
 deliveryModel:
   model: saas
@@ -37,23 +32,23 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/transit.png
 tags:
-  - Public Transit
-  - Real-Time
-  - Trip Planning
-  - Multi-Modal
-  - GTFS
-  - GOFS
-  - Mobility
-  - Shared Mobility
+- Public Transit
+- Real-Time
+- Trip Planning
+- Multi-Modal
+- GTFS
+- GOFS
+- Mobility
+- Shared Mobility
 tags_raw:
-  - Public Transit
-  - Real-Time
-  - Trip Planning
-  - Multimodal
-  - GTFS
-  - GOFS
-  - Mobility
-  - Shared Mobility
+- Public Transit
+- Real-Time
+- Trip Planning
+- Multimodal
+- GTFS
+- GOFS
+- Mobility
+- Shared Mobility
 created: '2025-05-02'
 modified: '2026-05-23'
 url: https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml
@@ -61,9 +56,7 @@ specificationVersion: '0.23'
 apis:
 - aid: transit:url-scheme
   name: Transit URL Scheme
-  description: >-
-    Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports
-    directions and nearby-routes hand-offs without requiring an API key.
+  description: Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and nearby-routes hand-offs without requiring an API key.
   humanURL: https://transitapp.com/apis
   baseURL: transit://
   tags:
@@ -113,11 +106,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-departures-api
   name: Transit Departures API
   description: Real-time and scheduled transit departure information
@@ -149,11 +140,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-mobility-api
   name: Transit Mobility API
   description: Shared bikes, scooters, and carshares
@@ -185,11 +174,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-networks-api
   name: Transit Networks API
   description: Transit network and agency data
@@ -221,11 +208,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-routes-api
   name: Transit Routes API
   description: Route information and schedules
@@ -257,11 +242,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-stops-api
   name: Transit Stops API
   description: Stop and station information
@@ -293,11 +276,9 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-trips-api
   name: Transit Trips API
   description: Multimodal trip planning and results
@@ -329,100 +310,238 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: >-
-      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
-  - type: GTFSGuidelines
-    url: >-
-      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
-common:
-  - type: AgenticAccess
-    url: agentic-access/transit-agentic-access.yml
-  - type: DomainSecurity
-    url: security/transit-domain-security.yml
-  - type: Authentication
-    url: authentication/transit-authentication.yml
-  - type: Website
-    url: https://transitapp.com/
-  - type: Documentation
-    url: https://transitapp.com/apis
-  - type: APIDocumentation
-    url: https://api-doc.transitapp.com/
-  - type: GitHub
-    url: https://github.com/TransitApp
-  - type: Blog
-    url: https://blog.transitapp.com/
-  - type: BlogFeed
-    url: https://blog.transitapp.com/feed/
-  - type: Support
-    url: https://help.transitapp.com/
-  - type: Careers
-    url: https://transitapp.com/careers
-  - type: Press
-    url: https://transitapp.com/press
-  - type: Pricing
-    url: https://transitapp.com/apis
-  - type: Signup
     url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
-  - type: ContactSales
-    url: mailto:partners+website@transit.app
-  - type: ContactGeneral
-    url: mailto:info@transit.app
+  - type: GTFSGuidelines
+    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transitapp-locations-api
+  name: Transit Locations API
+  description: Available transit networks and coverage near a location.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Locations
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-locations-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-nearby-routes-api
+  name: Transit Nearby Routes API
+  description: Public transit routes near a location with real-time departures.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Nearby Routes
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-nearby-routes-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-nearby-stops-api
+  name: Transit Nearby Stops API
+  description: Public transit stops near a location.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Nearby Stops
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-nearby-stops-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-route-details-api
+  name: Transit Route Details API
+  description: Itineraries, stops, and geometry for a specific route.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Route Details
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-route-details-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-service-alerts-api
+  name: Transit Service Alerts API
+  description: Service alerts and disruptions for routes, stops, and networks.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Service Alerts
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-service-alerts-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-stop-departures-api
+  name: Transit Stop Departures API
+  description: Upcoming departures for a specific stop.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Stop Departures
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-stop-departures-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+- aid: transit:transitapp-trip-planning-api
+  name: Transit Trip Planning API
+  description: Multimodal origin-to-destination trip planning.
+  humanURL: https://api-doc.transitapp.com/
+  baseURL: https://external.transitapp.com/v3
+  tags:
+  - Trip Planning
+  properties:
+  - type: OpenAPI
+    url: openapi/transitapp-trip-planning-api-openapi.yml
+  - type: Documentation
+    url: https://transitapp.com/partners/apis
+  - type: APIReference
+    url: https://api-doc.transitapp.com/
+  - type: PostmanCollection
+    url: collections/transitapp.postman_collection.json
+  - type: OpenCollection
+    url: collections/transitapp.opencollection.json
+  - type: Documentation
+    url: https://resources.transitapp.com/article/461-alerts
+common:
+- type: AgenticAccess
+  url: agentic-access/transit-agentic-access.yml
+- type: DomainSecurity
+  url: security/transit-domain-security.yml
+- type: Authentication
+  url: authentication/transit-authentication.yml
+- type: Website
+  url: https://transitapp.com/
+- type: Documentation
+  url: https://transitapp.com/apis
+- type: APIDocumentation
+  url: https://api-doc.transitapp.com/
+- type: GitHub
+  url: https://github.com/TransitApp
+- type: Blog
+  url: https://blog.transitapp.com/
+- type: BlogFeed
+  url: https://blog.transitapp.com/feed/
+- type: Support
+  url: https://help.transitapp.com/
+- type: Careers
+  url: https://transitapp.com/careers
+- type: Press
+  url: https://transitapp.com/press
+- type: Pricing
+  url: https://transitapp.com/apis
+- type: Signup
+  url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+- type: ContactSales
+  url: mailto:partners+website@transit.app
+- type: ContactGeneral
+  url: mailto:info@transit.app
 x-github-repos:
-  - name: GTFS-flex-to-GOFS
-    url: https://github.com/TransitApp/GTFS-flex-to-GOFS
-    description: Converts GTFS-Flex data to the GOFS-lite format
-    language: Python
-  - name: GTFS-blocks-to-transfers
-    url: https://github.com/TransitApp/GTFS-blocks-to-transfers
-    description: Converts GTFS blocks into trip-to-trip transfers using heuristics
-    language: Python
-    stars: 9
-  - name: py-gtfs-loader
-    url: https://github.com/TransitApp/py-gtfs-loader
-    description: Simple Python library to load GTFS feeds
-    language: Python
-    stars: 5
-  - name: gtfsNodeLib
-    url: https://github.com/TransitApp/gtfsNodeLib
-    description: Node.js library for GTFS
-    language: JavaScript
-    stars: 19
-  - name: gtfs-fares-v2-validator
-    url: https://github.com/TransitApp/gtfs-fares-v2-validator
-    description: Validates GTFS fares-v2 datasets
-    language: Python
-    stars: 7
-  - name: gtfs-flex
-    url: https://github.com/TransitApp/gtfs-flex
-    description: Flexible public transportation services as an extension to GTFS
-  - name: gtfs-realtime-bindings
-    url: https://github.com/TransitApp/gtfs-realtime-bindings
-    description: Language bindings generated from the GTFS-realtime protocol buffer spec
-    language: JavaScript
-    stars: 4
-  - name: transitfeed
-    url: https://github.com/TransitApp/transitfeed
-    description: Python library for reading, validating, and writing GTFS feeds
-    language: Python
-  - name: Transit-TV
-    url: https://github.com/TransitApp/Transit-TV
-    description: Uses the Transit API to display next departures for a TV context
-    language: JavaScript
-    stars: 15
-  - name: Transit-NearbyWebWidget
-    url: https://github.com/TransitApp/Transit-NearbyWebWidget
-    description: Web widget showing nearby Transit departures
-    language: JavaScript
-    stars: 1
-  - name: image-upload-transit
-    url: https://github.com/TransitApp/image-upload-transit
-    description: CLI tool for uploading images and videos to Transit's CDN
-    language: Python
-  - name: transit
-    url: https://github.com/TransitApp/transit
-    description: Fork of google/transit (GTFS specification repository)
-    license: Apache-2.0
-    stars: 7
+- name: GTFS-flex-to-GOFS
+  url: https://github.com/TransitApp/GTFS-flex-to-GOFS
+  description: Converts GTFS-Flex data to the GOFS-lite format
+  language: Python
+- name: GTFS-blocks-to-transfers
+  url: https://github.com/TransitApp/GTFS-blocks-to-transfers
+  description: Converts GTFS blocks into trip-to-trip transfers using heuristics
+  language: Python
+  stars: 9
+- name: py-gtfs-loader
+  url: https://github.com/TransitApp/py-gtfs-loader
+  description: Simple Python library to load GTFS feeds
+  language: Python
+  stars: 5
+- name: gtfsNodeLib
+  url: https://github.com/TransitApp/gtfsNodeLib
+  description: Node.js library for GTFS
+  language: JavaScript
+  stars: 19
+- name: gtfs-fares-v2-validator
+  url: https://github.com/TransitApp/gtfs-fares-v2-validator
+  description: Validates GTFS fares-v2 datasets
+  language: Python
+  stars: 7
+- name: gtfs-flex
+  url: https://github.com/TransitApp/gtfs-flex
+  description: Flexible public transportation services as an extension to GTFS
+- name: gtfs-realtime-bindings
+  url: https://github.com/TransitApp/gtfs-realtime-bindings
+  description: Language bindings generated from the GTFS-realtime protocol buffer spec
+  language: JavaScript
+  stars: 4
+- name: transitfeed
+  url: https://github.com/TransitApp/transitfeed
+  description: Python library for reading, validating, and writing GTFS feeds
+  language: Python
+- name: Transit-TV
+  url: https://github.com/TransitApp/Transit-TV
+  description: Uses the Transit API to display next departures for a TV context
+  language: JavaScript
+  stars: 15
+- name: Transit-NearbyWebWidget
+  url: https://github.com/TransitApp/Transit-NearbyWebWidget
+  description: Web widget showing nearby Transit departures
+  language: JavaScript
+  stars: 1
+- name: image-upload-transit
+  url: https://github.com/TransitApp/image-upload-transit
+  description: CLI tool for uploading images and videos to Transit's CDN
+  language: Python
+- name: transit
+  url: https://github.com/TransitApp/transit
+  description: Fork of google/transit (GTFS specification repository)
+  license: Apache-2.0
+  stars: 7
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
