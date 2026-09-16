@@ -56,7 +56,9 @@ specificationVersion: '0.23'
 apis:
 - aid: transit:url-scheme
   name: Transit URL Scheme
-  description: Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and nearby-routes hand-offs without requiring an API key.
+  description: >-
+    Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports
+    directions and nearby-routes hand-offs without requiring an API key.
   humanURL: https://transitapp.com/apis
   baseURL: transit://
   tags:
@@ -106,9 +108,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-departures-api
   name: Transit Departures API
   description: Real-time and scheduled transit departure information
@@ -140,9 +144,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-mobility-api
   name: Transit Mobility API
   description: Shared bikes, scooters, and carshares
@@ -174,9 +180,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-networks-api
   name: Transit Networks API
   description: Transit network and agency data
@@ -208,9 +216,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-routes-api
   name: Transit Routes API
   description: Route information and schedules
@@ -242,9 +252,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-stops-api
   name: Transit Stops API
   description: Stop and station information
@@ -276,9 +288,11 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
 - aid: transit:transit-trips-api
   name: Transit Trips API
   description: Multimodal trip planning and results
@@ -310,19 +324,21 @@ apis:
   - type: FinOps
     url: finops/transit-finops.yml
   - type: Signup
-    url: https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
+    url: >-
+      https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform
   - type: GTFSGuidelines
-    url: https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
-- aid: transit:transitapp-locations-api
+    url: >-
+      https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit
+- aid: transit:transit-locations-api
   name: Transit Locations API
   description: Available transit networks and coverage near a location.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Locations
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-locations-api-openapi.yml
+    url: openapi/transit-locations-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
@@ -333,16 +349,16 @@ apis:
     url: collections/transitapp.opencollection.json
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-nearby-routes-api
+- aid: transit:transit-nearby-routes-api
   name: Transit Nearby Routes API
   description: Public transit routes near a location with real-time departures.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Nearby Routes
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-nearby-routes-api-openapi.yml
+    url: openapi/transit-nearby-routes-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
@@ -353,16 +369,16 @@ apis:
     url: collections/transitapp.opencollection.json
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-nearby-stops-api
+- aid: transit:transit-nearby-stops-api
   name: Transit Nearby Stops API
   description: Public transit stops near a location.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Nearby Stops
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-nearby-stops-api-openapi.yml
+    url: openapi/transit-nearby-stops-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
@@ -373,16 +389,16 @@ apis:
     url: collections/transitapp.opencollection.json
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-route-details-api
+- aid: transit:transit-route-details-api
   name: Transit Route Details API
   description: Itineraries, stops, and geometry for a specific route.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Route Details
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-route-details-api-openapi.yml
+    url: openapi/transit-route-details-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
@@ -393,16 +409,16 @@ apis:
     url: collections/transitapp.opencollection.json
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-service-alerts-api
+- aid: transit:transit-service-alerts-api
   name: Transit Service Alerts API
   description: Service alerts and disruptions for routes, stops, and networks.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Service Alerts
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-service-alerts-api-openapi.yml
+    url: openapi/transit-service-alerts-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
@@ -413,36 +429,16 @@ apis:
     url: collections/transitapp.opencollection.json
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-stop-departures-api
-  name: Transit Stop Departures API
-  description: Upcoming departures for a specific stop.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
-  tags:
-  - Stop Departures
-  properties:
-  - type: OpenAPI
-    url: openapi/transitapp-stop-departures-api-openapi.yml
-  - type: Documentation
-    url: https://transitapp.com/partners/apis
-  - type: APIReference
-    url: https://api-doc.transitapp.com/
-  - type: PostmanCollection
-    url: collections/transitapp.postman_collection.json
-  - type: OpenCollection
-    url: collections/transitapp.opencollection.json
-  - type: Documentation
-    url: https://resources.transitapp.com/article/461-alerts
-- aid: transit:transitapp-trip-planning-api
+- aid: transit:transit-trip-planning-api
   name: Transit Trip Planning API
   description: Multimodal origin-to-destination trip planning.
-  humanURL: https://api-doc.transitapp.com/
-  baseURL: https://external.transitapp.com/v3
+  humanURL: https://transitapp.com/apis
+  baseURL: transit://
   tags:
   - Trip Planning
   properties:
   - type: OpenAPI
-    url: openapi/transitapp-trip-planning-api-openapi.yml
+    url: openapi/transit-trip-planning-api-openapi.yml
   - type: Documentation
     url: https://transitapp.com/partners/apis
   - type: APIReference
