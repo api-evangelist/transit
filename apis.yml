@@ -32,6 +32,7 @@ position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/transit.png
 tags:
+- Transit
 - Public Transit
 - Real-Time
 - Trip Planning
@@ -40,8 +41,8 @@ tags:
 - GOFS
 - Mobility
 - Shared Mobility
-- Transit
 tags_raw:
+- Transit
 - Public Transit
 - Real-Time
 - Trip Planning
@@ -336,6 +337,8 @@ apis:
   humanURL: https://transitapp.com/apis
   baseURL: transit://
   tags:
+  - Location
+  tags_raw:
   - Locations
   properties:
   - type: OpenAPI
