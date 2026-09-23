@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Transit Alerts Networks API
+  title: Transit Networks API
   description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
   version: v3.0.0
   contact:
@@ -58,18 +58,14 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
-    Location:
+    Agency:
       type: object
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        city:
+        id:
           type: string
-        country:
+        name:
+          type: string
+        timezone:
           type: string
     NetworksResponse:
       type: object
@@ -93,14 +89,18 @@ components:
             $ref: '#/components/schemas/Agency'
         location:
           $ref: '#/components/schemas/Location'
-    Agency:
+    Location:
       type: object
       properties:
-        id:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        city:
           type: string
-        name:
-          type: string
-        timezone:
+        country:
           type: string
   securitySchemes:
     ApiKeyAuth:

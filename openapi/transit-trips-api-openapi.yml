@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Transit Alerts Trips API
+  title: Transit Trips API
   description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
   version: v3.0.0
   contact:
@@ -79,25 +79,6 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
-    Stop:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        wheelchair_accessible:
-          type: boolean
-        routes:
-          type: array
-          items:
-            type: string
     TripResponse:
       type: object
       properties:
@@ -105,30 +86,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Itinerary'
-    Route:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - bus
-          - rail
-          - metro
-          - tram
-          - ferry
-          - cable_car
-          - gondola
-          - funicular
-        color:
-          type: string
-        text_color:
-          type: string
-        network_id:
-          type: string
     Leg:
       type: object
       properties:
@@ -175,6 +132,49 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Leg'
+    Route:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - bus
+          - rail
+          - metro
+          - tram
+          - ferry
+          - cable_car
+          - gondola
+          - funicular
+        color:
+          type: string
+        text_color:
+          type: string
+        network_id:
+          type: string
+    Stop:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        wheelchair_accessible:
+          type: boolean
+        routes:
+          type: array
+          items:
+            type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

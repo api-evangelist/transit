@@ -1,13 +1,13 @@
 {
   "provider": "transit",
   "sources": [
-    "transit-alerts-api-openapi.yml",
-    "transit-departures-api-openapi.yml",
-    "transit-mobility-api-openapi.yml",
-    "transit-networks-api-openapi.yml",
-    "transit-routes-api-openapi.yml",
-    "transit-stops-api-openapi.yml",
-    "transit-trips-api-openapi.yml"
+    "_original/transit-openapi.yml",
+    "_original/transitapp-locations-api-openapi.yml",
+    "_original/transitapp-nearby-routes-api-openapi.yml",
+    "_original/transitapp-nearby-stops-api-openapi.yml",
+    "_original/transitapp-route-details-api-openapi.yml",
+    "_original/transitapp-service-alerts-api-openapi.yml",
+    "_original/transitapp-trip-planning-api-openapi.yml"
   ],
   "outputs": [
     "transit-alerts-api-openapi.yml",
@@ -16,11 +16,37 @@
     "transit-networks-api-openapi.yml",
     "transit-routes-api-openapi.yml",
     "transit-stops-api-openapi.yml",
-    "transit-trips-api-openapi.yml"
+    "transit-trips-api-openapi.yml",
+    "transit-locations-api-openapi.yml",
+    "transit-nearby-routes-api-openapi.yml",
+    "transit-nearby-stops-api-openapi.yml",
+    "transit-route-details-api-openapi.yml",
+    "transit-service-alerts-api-openapi.yml",
+    "transit-trip-planning-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (7 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "transit-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "_original/transitapp-stop-departures-api-openapi.yml: archived document superseded by a larger archived document",
+    "transit-alerts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-departures-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-locations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-mobility-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-nearby-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-nearby-stops-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-networks-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-route-details-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-service-alerts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-stops-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-trip-planning-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "transit-trips-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

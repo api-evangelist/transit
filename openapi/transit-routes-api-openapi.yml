@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Transit Alerts Routes API
+  title: Transit Routes API
   description: The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.
   version: v3.0.0
   contact:
