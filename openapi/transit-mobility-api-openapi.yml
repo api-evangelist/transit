@@ -58,36 +58,6 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
-    NearbyVehiclesResponse:
-      type: object
-      properties:
-        vehicles:
-          type: array
-          items:
-            $ref: '#/components/schemas/Vehicle'
-        bikes:
-          type: array
-          items:
-            $ref: '#/components/schemas/MobilityVehicle'
-        scooters:
-          type: array
-          items:
-            $ref: '#/components/schemas/MobilityVehicle'
-    MobilityVehicle:
-      type: object
-      properties:
-        id:
-          type: string
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        battery_level:
-          type: integer
-        provider:
-          type: string
     Vehicle:
       type: object
       properties:
@@ -105,6 +75,36 @@ components:
           type: string
         trip_id:
           type: string
+    MobilityVehicle:
+      type: object
+      properties:
+        id:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        battery_level:
+          type: integer
+        provider:
+          type: string
+    NearbyVehiclesResponse:
+      type: object
+      properties:
+        vehicles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Vehicle'
+        bikes:
+          type: array
+          items:
+            $ref: '#/components/schemas/MobilityVehicle'
+        scooters:
+          type: array
+          items:
+            $ref: '#/components/schemas/MobilityVehicle'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

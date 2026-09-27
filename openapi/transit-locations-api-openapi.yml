@@ -67,6 +67,19 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
     Error:
       type: object
@@ -89,19 +102,6 @@ components:
         location_name:
           type: string
           example: Montreal
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

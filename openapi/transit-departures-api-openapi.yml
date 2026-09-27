@@ -62,6 +62,13 @@ paths:
           description: Rate limit exceeded
 components:
   schemas:
+    StopDeparturesResponse:
+      type: object
+      properties:
+        departures:
+          type: array
+          items:
+            $ref: '#/components/schemas/Departure'
     Departure:
       type: object
       properties:
@@ -88,13 +95,6 @@ components:
         vehicle_id:
           type: string
           description: Vehicle identifier for real-time tracking
-    StopDeparturesResponse:
-      type: object
-      properties:
-        departures:
-          type: array
-          items:
-            $ref: '#/components/schemas/Departure'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -116,22 +116,6 @@ components:
           $ref: '#/components/schemas/Stop'
         route:
           $ref: '#/components/schemas/Route'
-    Itinerary:
-      type: object
-      properties:
-        duration:
-          type: integer
-          description: Total trip duration in seconds
-        departure_time:
-          type: string
-          format: date-time
-        arrival_time:
-          type: string
-          format: date-time
-        legs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Leg'
     Route:
       type: object
       properties:
@@ -175,6 +159,22 @@ components:
           type: array
           items:
             type: string
+    Itinerary:
+      type: object
+      properties:
+        duration:
+          type: integer
+          description: Total trip duration in seconds
+        departure_time:
+          type: string
+          format: date-time
+        arrival_time:
+          type: string
+          format: date-time
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

@@ -70,15 +70,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 401
-        message:
-          type: string
-          example: Invalid API key.
     ServiceAlert:
       type: object
       properties:
@@ -112,15 +103,24 @@ components:
           type: array
           items:
             type: string
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 401
+        message:
+          type: string
+          example: Invalid API key.
   responses:
-    Unauthorized:
-      description: Missing or invalid API key.
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+    Unauthorized:
+      description: Missing or invalid API key.
       content:
         application/json:
           schema:

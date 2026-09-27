@@ -58,15 +58,6 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
-    Agency:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        timezone:
-          type: string
     NetworksResponse:
       type: object
       properties:
@@ -74,6 +65,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Network'
+    Location:
+      type: object
+      properties:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        city:
+          type: string
+        country:
+          type: string
     Network:
       type: object
       properties:
@@ -89,18 +93,14 @@ components:
             $ref: '#/components/schemas/Agency'
         location:
           $ref: '#/components/schemas/Location'
-    Location:
+    Agency:
       type: object
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        city:
+        id:
           type: string
-        country:
+        name:
+          type: string
+        timezone:
           type: string
   securitySchemes:
     ApiKeyAuth:

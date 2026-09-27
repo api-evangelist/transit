@@ -54,22 +54,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    RouteDetail:
-      type: object
-      properties:
-        global_route_id:
-          type: string
-          example: STM:route:747
-        route_short_name:
-          type: string
-          example: '747'
-        route_long_name:
-          type: string
-          example: YUL Aéroport - Centre-ville
-        itineraries:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItineraryDetail'
     Error:
       type: object
       properties:
@@ -79,22 +63,6 @@ components:
         message:
           type: string
           example: Invalid API key.
-    ItineraryDetail:
-      type: object
-      properties:
-        direction_id:
-          type: integer
-          example: 0
-        headsign:
-          type: string
-          example: Centre-ville
-        stops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stop'
-        shape:
-          type: string
-          description: Encoded polyline of the route path geometry.
     Stop:
       type: object
       properties:
@@ -123,15 +91,47 @@ components:
           type: integer
           description: GTFS route_type served at this stop.
           example: 1
+    RouteDetail:
+      type: object
+      properties:
+        global_route_id:
+          type: string
+          example: STM:route:747
+        route_short_name:
+          type: string
+          example: '747'
+        route_long_name:
+          type: string
+          example: YUL Aéroport - Centre-ville
+        itineraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItineraryDetail'
+    ItineraryDetail:
+      type: object
+      properties:
+        direction_id:
+          type: integer
+          example: 0
+        headsign:
+          type: string
+          example: Centre-ville
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stop'
+        shape:
+          type: string
+          description: Encoded polyline of the route path geometry.
   responses:
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+    Unauthorized:
+      description: Missing or invalid API key.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key.
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
       content:
         application/json:
           schema:
