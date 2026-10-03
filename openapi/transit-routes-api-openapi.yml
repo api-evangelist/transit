@@ -45,6 +45,13 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
+    RoutesResponse:
+      type: object
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
     Route:
       type: object
       properties:
@@ -69,13 +76,6 @@ components:
           type: string
         network_id:
           type: string
-    RoutesResponse:
-      type: object
-      properties:
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

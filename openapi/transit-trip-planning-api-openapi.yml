@@ -95,7 +95,37 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
+  responses:
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Itinerary:
+      type: object
+      properties:
+        duration:
+          type: integer
+          description: Total trip duration in seconds.
+          example: 1980
+        start_time:
+          type: integer
+          description: Unix epoch seconds of departure.
+        end_time:
+          type: integer
+          description: Unix epoch seconds of arrival.
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
     Leg:
       type: object
       properties:
@@ -123,36 +153,6 @@ components:
         message:
           type: string
           example: Invalid API key.
-    Itinerary:
-      type: object
-      properties:
-        duration:
-          type: integer
-          description: Total trip duration in seconds.
-          example: 1980
-        start_time:
-          type: integer
-          description: Unix epoch seconds of departure.
-        end_time:
-          type: integer
-          description: Unix epoch seconds of arrival.
-        legs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Leg'
-  responses:
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

@@ -54,15 +54,6 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 401
-        message:
-          type: string
-          example: Invalid API key.
     Stop:
       type: object
       properties:
@@ -91,22 +82,6 @@ components:
           type: integer
           description: GTFS route_type served at this stop.
           example: 1
-    RouteDetail:
-      type: object
-      properties:
-        global_route_id:
-          type: string
-          example: STM:route:747
-        route_short_name:
-          type: string
-          example: '747'
-        route_long_name:
-          type: string
-          example: YUL Aéroport - Centre-ville
-        itineraries:
-          type: array
-          items:
-            $ref: '#/components/schemas/ItineraryDetail'
     ItineraryDetail:
       type: object
       properties:
@@ -123,15 +98,40 @@ components:
         shape:
           type: string
           description: Encoded polyline of the route path geometry.
+    RouteDetail:
+      type: object
+      properties:
+        global_route_id:
+          type: string
+          example: STM:route:747
+        route_short_name:
+          type: string
+          example: '747'
+        route_long_name:
+          type: string
+          example: YUL Aéroport - Centre-ville
+        itineraries:
+          type: array
+          items:
+            $ref: '#/components/schemas/ItineraryDetail'
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 401
+        message:
+          type: string
+          example: Invalid API key.
   responses:
-    Unauthorized:
-      description: Missing or invalid API key.
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+    Unauthorized:
+      description: Missing or invalid API key.
       content:
         application/json:
           schema:

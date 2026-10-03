@@ -86,6 +86,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Itinerary'
+    Stop:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        wheelchair_accessible:
+          type: boolean
+        routes:
+          type: array
+          items:
+            type: string
+    Itinerary:
+      type: object
+      properties:
+        duration:
+          type: integer
+          description: Total trip duration in seconds
+        departure_time:
+          type: string
+          format: date-time
+        arrival_time:
+          type: string
+          format: date-time
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
     Leg:
       type: object
       properties:
@@ -140,41 +175,6 @@ components:
           type: string
         network_id:
           type: string
-    Stop:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        wheelchair_accessible:
-          type: boolean
-        routes:
-          type: array
-          items:
-            type: string
-    Itinerary:
-      type: object
-      properties:
-        duration:
-          type: integer
-          description: Total trip duration in seconds
-        departure_time:
-          type: string
-          format: date-time
-        arrival_time:
-          type: string
-          format: date-time
-        legs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Leg'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
