@@ -65,14 +65,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Network'
-    Agency:
+    Location:
       type: object
       properties:
-        id:
+        lat:
+          type: number
+          format: float
+        lon:
+          type: number
+          format: float
+        city:
           type: string
-        name:
-          type: string
-        timezone:
+        country:
           type: string
     Network:
       type: object
@@ -89,18 +93,14 @@ components:
             $ref: '#/components/schemas/Agency'
         location:
           $ref: '#/components/schemas/Location'
-    Location:
+    Agency:
       type: object
       properties:
-        lat:
-          type: number
-          format: float
-        lon:
-          type: number
-          format: float
-        city:
+        id:
           type: string
-        country:
+        name:
+          type: string
+        timezone:
           type: string
   securitySchemes:
     ApiKeyAuth:

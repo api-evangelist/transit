@@ -95,37 +95,7 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
-    Itinerary:
-      type: object
-      properties:
-        duration:
-          type: integer
-          description: Total trip duration in seconds.
-          example: 1980
-        start_time:
-          type: integer
-          description: Unix epoch seconds of departure.
-        end_time:
-          type: integer
-          description: Unix epoch seconds of arrival.
-        legs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Leg'
     Leg:
       type: object
       properties:
@@ -144,6 +114,23 @@ components:
         duration:
           type: integer
           example: 1500
+    Itinerary:
+      type: object
+      properties:
+        duration:
+          type: integer
+          description: Total trip duration in seconds.
+          example: 1980
+        start_time:
+          type: integer
+          description: Unix epoch seconds of departure.
+        end_time:
+          type: integer
+          description: Unix epoch seconds of arrival.
+        legs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Leg'
     Error:
       type: object
       properties:
@@ -153,6 +140,19 @@ components:
         message:
           type: string
           example: Invalid API key.
+  responses:
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey

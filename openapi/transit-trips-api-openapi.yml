@@ -79,6 +79,36 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
+    Leg:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum:
+          - walk
+          - bus
+          - rail
+          - metro
+          - tram
+          - bicycle
+          - scooter
+          - car
+        distance:
+          type: number
+        duration:
+          type: integer
+        departure_time:
+          type: string
+          format: date-time
+        arrival_time:
+          type: string
+          format: date-time
+        from_stop:
+          $ref: '#/components/schemas/Stop'
+        to_stop:
+          $ref: '#/components/schemas/Stop'
+        route:
+          $ref: '#/components/schemas/Route'
     TripResponse:
       type: object
       properties:
@@ -86,6 +116,30 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Itinerary'
+    Route:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - bus
+          - rail
+          - metro
+          - tram
+          - ferry
+          - cable_car
+          - gondola
+          - funicular
+        color:
+          type: string
+        text_color:
+          type: string
+        network_id:
+          type: string
     Stop:
       type: object
       properties:
@@ -121,60 +175,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Leg'
-    Leg:
-      type: object
-      properties:
-        mode:
-          type: string
-          enum:
-          - walk
-          - bus
-          - rail
-          - metro
-          - tram
-          - bicycle
-          - scooter
-          - car
-        distance:
-          type: number
-        duration:
-          type: integer
-        departure_time:
-          type: string
-          format: date-time
-        arrival_time:
-          type: string
-          format: date-time
-        from_stop:
-          $ref: '#/components/schemas/Stop'
-        to_stop:
-          $ref: '#/components/schemas/Stop'
-        route:
-          $ref: '#/components/schemas/Route'
-    Route:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        type:
-          type: string
-          enum:
-          - bus
-          - rail
-          - metro
-          - tram
-          - ferry
-          - cable_car
-          - gondola
-          - funicular
-        color:
-          type: string
-        text_color:
-          type: string
-        network_id:
-          type: string
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

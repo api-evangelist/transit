@@ -53,6 +53,13 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
+    AlertsResponse:
+      type: object
+      properties:
+        alerts:
+          type: array
+          items:
+            $ref: '#/components/schemas/Alert'
     Alert:
       type: object
       properties:
@@ -89,13 +96,6 @@ components:
           type: array
           items:
             type: string
-    AlertsResponse:
-      type: object
-      properties:
-        alerts:
-          type: array
-          items:
-            $ref: '#/components/schemas/Alert'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
