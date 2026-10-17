@@ -83,24 +83,15 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
-    Leg:
+    Error:
       type: object
       properties:
-        mode:
-          type: string
-          example: BUS
-        from:
-          type: string
-          example: YUL Aéroport
-        to:
-          type: string
-          example: Centre-ville
-        route_short_name:
-          type: string
-          example: '747'
-        duration:
+        status:
           type: integer
-          example: 1500
+          example: 401
+        message:
+          type: string
+          example: Invalid API key.
     Route:
       type: object
       properties:
@@ -126,6 +117,24 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Itinerary'
+    Leg:
+      type: object
+      properties:
+        mode:
+          type: string
+          example: BUS
+        from:
+          type: string
+          example: YUL Aéroport
+        to:
+          type: string
+          example: Centre-ville
+        route_short_name:
+          type: string
+          example: '747'
+        duration:
+          type: integer
+          example: 1500
     Itinerary:
       type: object
       properties:
@@ -143,15 +152,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Leg'
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 401
-        message:
-          type: string
-          example: Invalid API key.
   responses:
     RateLimited:
       description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).

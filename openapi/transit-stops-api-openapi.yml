@@ -64,13 +64,6 @@ paths:
           description: Unauthorized - invalid or missing API key
 components:
   schemas:
-    StopsResponse:
-      type: object
-      properties:
-        stops:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stop'
     Stop:
       type: object
       properties:
@@ -90,6 +83,13 @@ components:
           type: array
           items:
             type: string
+    StopsResponse:
+      type: object
+      properties:
+        stops:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stop'
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

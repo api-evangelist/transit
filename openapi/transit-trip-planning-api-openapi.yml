@@ -96,6 +96,15 @@ paths:
           $ref: '#/components/responses/RateLimited'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 401
+        message:
+          type: string
+          example: Invalid API key.
     Leg:
       type: object
       properties:
@@ -131,15 +140,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Leg'
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 401
-        message:
-          type: string
-          example: Invalid API key.
   responses:
     RateLimited:
       description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).

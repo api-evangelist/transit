@@ -53,20 +53,16 @@ paths:
         '429':
           $ref: '#/components/responses/RateLimited'
 components:
-  responses:
-    RateLimited:
-      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Error:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 401
+        message:
+          type: string
+          example: Invalid API key.
     Stop:
       type: object
       properties:
@@ -127,15 +123,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ItineraryDetail'
-    Error:
-      type: object
-      properties:
-        status:
-          type: integer
-          example: 401
-        message:
-          type: string
-          example: Invalid API key.
+  responses:
+    RateLimited:
+      description: Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKeyAuth:
       type: apiKey
