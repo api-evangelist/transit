@@ -454,6 +454,8 @@ apis:
   - type: Documentation
     url: https://resources.transitapp.com/article/461-alerts
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/transit/overview
 - type: Plans
   url: plans/transit-plans-pricing.yml
 - type: RateLimits
