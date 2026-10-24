@@ -1,0 +1,307 @@
+{
+  "info": {
+    "_postman_id": "f33ec284-85cb-4d0b-8a6c-60e559e53fd6",
+    "name": "Transit Locations Service Alerts API",
+    "description": "The Transit API delivers real-time public transit data - nearby routes and stops, stop departures, route details, multimodal trip planning, and service alerts - across 1,100+ cities in 37 countries, plus shared-mobility availability for bikes, scooters, and carshare.\n\nContact Support:\n Name: Transit Partnerships\n Email: partners@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:46.000Z",
+    "updatedAt": "2026-10-21T21:07:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f33ec284-85cb-4d0b-8a6c-60e559e53fd6"
+  },
+  "item": [
+    {
+      "name": "public",
+      "item": [
+        {
+          "name": "service_alerts",
+          "item": [
+            {
+              "name": "Get service alerts",
+              "id": "e3bc7ac3-7fd9-413c-b80b-49d6462e1390",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Preferred response language (BCP 47).",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/public/service_alerts?global_route_id=<string>&global_stop_id=<string>&network_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public",
+                    "service_alerts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Filter alerts affecting a specific route.",
+                      "key": "global_route_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter alerts affecting a specific stop.",
+                      "key": "global_stop_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter alerts affecting a specific transit network/agency.",
+                      "key": "network_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns service alerts and disruptions - delays, detours, elevator outages, and cancellations - scoped to a route, stop, or network, following the GTFS-realtime service-alert model."
+              },
+              "response": [
+                {
+                  "id": "9ddef9cf-fd04-4a6f-8f08-a2f80007a3dd",
+                  "name": "Matching service alerts.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/service_alerts?global_route_id=<string>&global_stop_id=<string>&network_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "service_alerts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter alerts affecting a specific route.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific stop.",
+                          "key": "global_stop_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific transit network/agency.",
+                          "key": "network_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"alerts\": [\n    {\n      \"alert_id\": \"<string>\",\n      \"cause\": \"<string>\",\n      \"effect\": \"<string>\",\n      \"header_text\": \"<string>\",\n      \"description_text\": \"<string>\",\n      \"severity\": \"<string>\",\n      \"active_period_start\": \"<integer>\",\n      \"active_period_end\": \"<integer>\",\n      \"affected_global_route_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"alert_id\": \"<string>\",\n      \"cause\": \"<string>\",\n      \"effect\": \"<string>\",\n      \"header_text\": \"<string>\",\n      \"description_text\": \"<string>\",\n      \"severity\": \"<string>\",\n      \"active_period_start\": \"<integer>\",\n      \"active_period_end\": \"<integer>\",\n      \"affected_global_route_ids\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:07:47.000Z",
+                  "updatedAt": "2026-10-21T21:07:47.000Z",
+                  "uid": "35240-9ddef9cf-fd04-4a6f-8f08-a2f80007a3dd"
+                },
+                {
+                  "id": "f954160d-d5ab-4b59-8063-825f4c71a3c2",
+                  "name": "Missing or invalid API key.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/service_alerts?global_route_id=<string>&global_stop_id=<string>&network_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "service_alerts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter alerts affecting a specific route.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific stop.",
+                          "key": "global_stop_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific transit network/agency.",
+                          "key": "network_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:47.000Z",
+                  "updatedAt": "2026-10-21T21:07:47.000Z",
+                  "uid": "35240-f954160d-d5ab-4b59-8063-825f4c71a3c2"
+                },
+                {
+                  "id": "545030c4-6b85-45f1-86a9-f039bf796880",
+                  "name": "Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/service_alerts?global_route_id=<string>&global_stop_id=<string>&network_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "service_alerts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Filter alerts affecting a specific route.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific stop.",
+                          "key": "global_stop_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter alerts affecting a specific transit network/agency.",
+                          "key": "network_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:47.000Z",
+                  "updatedAt": "2026-10-21T21:07:47.000Z",
+                  "uid": "35240-545030c4-6b85-45f1-86a9-f039bf796880"
+                }
+              ],
+              "createdAt": "2026-10-21T21:07:47.000Z",
+              "updatedAt": "2026-10-21T21:07:47.000Z",
+              "uid": "35240-e3bc7ac3-7fd9-413c-b80b-49d6462e1390"
+            }
+          ],
+          "id": "7fe7a87c-0e83-48ac-a137-dccdb07c4f3c",
+          "createdAt": "2026-10-21T21:07:47.000Z",
+          "updatedAt": "2026-10-21T21:07:47.000Z",
+          "uid": "35240-7fe7a87c-0e83-48ac-a137-dccdb07c4f3c"
+        }
+      ],
+      "id": "e92a0fe2-90a7-4f63-9e0f-3a6e75d1e89e",
+      "createdAt": "2026-10-21T21:07:47.000Z",
+      "updatedAt": "2026-10-21T21:07:47.000Z",
+      "uid": "35240-e92a0fe2-90a7-4f63-9e0f-3a6e75d1e89e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.transitapp.com/v3"
+    }
+  ]
+}

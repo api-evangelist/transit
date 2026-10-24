@@ -1,174 +1,167 @@
 {
+  "info": {
+    "_postman_id": "fad250c8-ad9e-479f-9d7c-adca133b50df",
+    "name": "Transit Routes API",
+    "description": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:08.000Z",
+    "updatedAt": "2026-10-21T21:07:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fad250c8-ad9e-479f-9d7c-adca133b50df"
+  },
   "item": [
     {
-      "id": "d4eae52b-a92c-433b-b9cf-7e03210d981e",
-      "name": "Routes",
-      "description": {
-        "content": "Route information and schedules",
-        "type": "text/plain"
-      },
+      "name": "public",
       "item": [
         {
-          "id": "a1b70b0a-1318-4c76-9e70-ab8c40b6f640",
-          "name": "List Routes",
-          "request": {
-            "name": "List Routes",
-            "description": {
-              "content": "Returns all routes for a list of given transit networks.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "public",
-                "routes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "network_ids",
-                  "value": "<string>",
-                  "description": "(Required) Network IDs to get routes for"
-                },
-                {
-                  "disabled": false,
-                  "key": "network_ids",
-                  "value": "<string>",
-                  "description": "(Required) Network IDs to get routes for"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "routes",
+          "item": [
             {
-              "id": "8a5f84a2-52e2-4214-97f9-eea7b4723634",
-              "name": "Successful response with route list",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "public",
-                    "routes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "network_ids",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "network_ids",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "List Routes",
+              "id": "beb82e41-dae9-41ad-9c81-3e92b8f23989",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"routes\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"gondola\",\n      \"color\": \"string\",\n      \"text_color\": \"string\",\n      \"network_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"funicular\",\n      \"color\": \"string\",\n      \"text_color\": \"string\",\n      \"network_id\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "dfeafe02-f0fc-42fd-9e6c-a30c6091a2fc",
-              "name": "Unauthorized - invalid or missing API key",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/public/routes?network_ids=<string>&network_ids=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "public",
                     "routes"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) Network IDs to get routes for",
                       "key": "network_ids",
                       "value": "<string>"
                     },
                     {
+                      "description": "(Required) Network IDs to get routes for",
                       "key": "network_ids",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns all routes for a list of given transit networks."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "4487d595-d0ab-4ed1-8123-cfa7e716304e",
+                  "name": "Successful response with route list",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/routes?network_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "routes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Network IDs to get routes for",
+                          "key": "network_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"routes\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"tram\",\n      \"color\": \"<string>\",\n      \"text_color\": \"<string>\",\n      \"network_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"funicular\",\n      \"color\": \"<string>\",\n      \"text_color\": \"<string>\",\n      \"network_id\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:07:08.000Z",
+                  "updatedAt": "2026-10-21T21:07:08.000Z",
+                  "uid": "35240-4487d595-d0ab-4ed1-8123-cfa7e716304e"
+                },
+                {
+                  "id": "071914b3-403f-465c-a9bf-2c654d9ab2e6",
+                  "name": "Unauthorized - invalid or missing API key",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/routes?network_ids=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "routes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Network IDs to get routes for",
+                          "key": "network_ids",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T21:07:08.000Z",
+                  "updatedAt": "2026-10-21T21:07:08.000Z",
+                  "uid": "35240-071914b3-403f-465c-a9bf-2c654d9ab2e6"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T21:07:08.000Z",
+              "updatedAt": "2026-10-21T21:07:08.000Z",
+              "uid": "35240-beb82e41-dae9-41ad-9c81-3e92b8f23989"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "8df14dbc-3e69-4dc9-910d-c594fce4368e",
+          "createdAt": "2026-10-21T21:07:08.000Z",
+          "updatedAt": "2026-10-21T21:07:08.000Z",
+          "uid": "35240-8df14dbc-3e69-4dc9-910d-c594fce4368e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-doc.transitapp.com",
-      "key": "baseUrl"
+      "id": "a91f4f42-105a-414e-9365-b0f32587ee39",
+      "createdAt": "2026-10-21T21:07:08.000Z",
+      "updatedAt": "2026-10-21T21:07:08.000Z",
+      "uid": "35240-a91f4f42-105a-414e-9365-b0f32587ee39"
     }
   ],
   "auth": {
@@ -176,25 +169,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5bc36844-45bb-48c3-a7e7-455a01113f1d",
-    "name": "Transit Alerts Routes API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-doc.transitapp.com"
     }
-  }
+  ]
 }

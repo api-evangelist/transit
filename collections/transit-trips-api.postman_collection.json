@@ -1,230 +1,237 @@
 {
+  "info": {
+    "_postman_id": "942fa7d4-67da-49ae-b7b6-3f8f37dd4a71",
+    "name": "Transit Trips API",
+    "description": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:18.000Z",
+    "updatedAt": "2026-10-21T21:07:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-942fa7d4-67da-49ae-b7b6-3f8f37dd4a71"
+  },
   "item": [
     {
-      "id": "100908e1-45ce-4efb-b8cd-ee0ee39c994a",
-      "name": "Trips",
-      "description": {
-        "content": "Multimodal trip planning and results",
-        "type": "text/plain"
-      },
+      "name": "public",
       "item": [
         {
-          "id": "d1012bf8-2670-448f-b986-02c2070391cf",
-          "name": "Plan Trip",
-          "request": {
-            "name": "Plan Trip",
-            "description": {
-              "content": "Plans a multimodal trip from origin to destination, combining public transit with shared mobility options such as bikes, scooters, and carshares.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "public",
-                "trip"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "origin_lat",
-                  "value": "<float>",
-                  "description": "(Required) Origin latitude"
-                },
-                {
-                  "disabled": false,
-                  "key": "origin_lon",
-                  "value": "<float>",
-                  "description": "(Required) Origin longitude"
-                },
-                {
-                  "disabled": false,
-                  "key": "destination_lat",
-                  "value": "<float>",
-                  "description": "(Required) Destination latitude"
-                },
-                {
-                  "disabled": false,
-                  "key": "destination_lon",
-                  "value": "<float>",
-                  "description": "(Required) Destination longitude"
-                },
-                {
-                  "disabled": false,
-                  "key": "time",
-                  "value": "<dateTime>",
-                  "description": "Departure or arrival time (ISO 8601)"
-                },
-                {
-                  "disabled": false,
-                  "key": "arrive_by",
-                  "value": "false",
-                  "description": "Whether time represents arrival time"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "trip",
+          "item": [
             {
-              "id": "6eec8f9a-7b32-428c-b8f2-0f714f5d833d",
-              "name": "Successful response with trip plans",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "public",
-                    "trip"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "origin_lat",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "origin_lon",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "destination_lat",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "destination_lon",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "time",
-                      "value": "<dateTime>"
-                    },
-                    {
-                      "key": "arrive_by",
-                      "value": "false"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Plan Trip",
+              "id": "4cd9e97c-d2dd-4501-9f57-4c3027907f38",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"itineraries\": [\n    {\n      \"duration\": 6525,\n      \"departure_time\": \"1953-08-23T02:49:33.747Z\",\n      \"arrival_time\": \"2022-09-21T09:19:38.119Z\",\n      \"legs\": [\n        {\n          \"mode\": \"tram\",\n          \"distance\": 6379.045803748776,\n          \"duration\": 208,\n          \"departure_time\": \"2010-12-19T20:59:19.777Z\",\n          \"arrival_time\": \"2012-01-15T18:26:13.806Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 8399.91858916977,\n            \"lon\": 1056.5953524546235,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 4151.659290045779,\n            \"lon\": 9219.312757971657,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"funicular\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        },\n        {\n          \"mode\": \"car\",\n          \"distance\": 2534.4716309560754,\n          \"duration\": 5345,\n          \"departure_time\": \"1955-07-07T22:04:45.242Z\",\n          \"arrival_time\": \"1980-08-12T12:15:07.657Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 3940.9364432404614,\n            \"lon\": 9812.083680738195,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 2699.458549920767,\n            \"lon\": 3857.041329532012,\n            \"wheelchair_accessible\": false,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"funicular\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        }\n      ]\n    },\n    {\n      \"duration\": 7338,\n      \"departure_time\": \"2006-05-08T23:45:22.794Z\",\n      \"arrival_time\": \"1975-07-24T04:44:40.803Z\",\n      \"legs\": [\n        {\n          \"mode\": \"walk\",\n          \"distance\": 2308.563057917443,\n          \"duration\": 3137,\n          \"departure_time\": \"2006-02-14T18:46:19.303Z\",\n          \"arrival_time\": \"2022-02-16T12:21:19.765Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 4366.448830651866,\n            \"lon\": 8917.874207031175,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 7282.02140419783,\n            \"lon\": 2229.7656398365393,\n            \"wheelchair_accessible\": false,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"metro\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        },\n        {\n          \"mode\": \"car\",\n          \"distance\": 2457.8185409084176,\n          \"duration\": 9985,\n          \"departure_time\": \"1985-04-08T10:48:45.668Z\",\n          \"arrival_time\": \"2022-07-17T21:52:51.435Z\",\n          \"from_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 3630.54523581397,\n            \"lon\": 950.4124591761698,\n            \"wheelchair_accessible\": true,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"lat\": 5785.764794147345,\n            \"lon\": 7281.993169770531,\n            \"wheelchair_accessible\": false,\n            \"routes\": [\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            ]\n          },\n          \"route\": {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"type\": \"gondola\",\n            \"color\": \"string\",\n            \"text_color\": \"string\",\n            \"network_id\": \"string\"\n          }\n        }\n      ]\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ecef86a2-375d-409b-bd6c-503ea017a23e",
-              "name": "Unauthorized - invalid or missing API key",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/public/trip?origin_lat=<float>&origin_lon=<float>&destination_lat=<float>&destination_lon=<float>&time=<dateTime>&arrive_by=false",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "public",
                     "trip"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) Origin latitude",
                       "key": "origin_lat",
                       "value": "<float>"
                     },
                     {
+                      "description": "(Required) Origin longitude",
                       "key": "origin_lon",
                       "value": "<float>"
                     },
                     {
+                      "description": "(Required) Destination latitude",
                       "key": "destination_lat",
                       "value": "<float>"
                     },
                     {
+                      "description": "(Required) Destination longitude",
                       "key": "destination_lon",
                       "value": "<float>"
                     },
                     {
+                      "description": "Departure or arrival time (ISO 8601)",
                       "key": "time",
                       "value": "<dateTime>"
                     },
                     {
+                      "description": "Whether time represents arrival time",
                       "key": "arrive_by",
                       "value": "false"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Plans a multimodal trip from origin to destination, combining public transit with shared mobility options such as bikes, scooters, and carshares."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "b5fd542c-df9b-47a2-ae50-55a2ac27adc3",
+                  "name": "Successful response with trip plans",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/trip?origin_lat=<float>&origin_lon=<float>&destination_lat=<float>&destination_lon=<float>&time=<dateTime>&arrive_by=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "trip"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Origin latitude",
+                          "key": "origin_lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Origin longitude",
+                          "key": "origin_lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Destination latitude",
+                          "key": "destination_lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Destination longitude",
+                          "key": "destination_lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Departure or arrival time (ISO 8601)",
+                          "key": "time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Whether time represents arrival time",
+                          "key": "arrive_by",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"itineraries\": [\n    {\n      \"duration\": \"<integer>\",\n      \"departure_time\": \"<dateTime>\",\n      \"arrival_time\": \"<dateTime>\",\n      \"legs\": [\n        {\n          \"mode\": \"walk\",\n          \"distance\": \"<number>\",\n          \"duration\": \"<integer>\",\n          \"departure_time\": \"<dateTime>\",\n          \"arrival_time\": \"<dateTime>\",\n          \"from_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"route\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"cable_car\",\n            \"color\": \"<string>\",\n            \"text_color\": \"<string>\",\n            \"network_id\": \"<string>\"\n          }\n        },\n        {\n          \"mode\": \"walk\",\n          \"distance\": \"<number>\",\n          \"duration\": \"<integer>\",\n          \"departure_time\": \"<dateTime>\",\n          \"arrival_time\": \"<dateTime>\",\n          \"from_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"route\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"ferry\",\n            \"color\": \"<string>\",\n            \"text_color\": \"<string>\",\n            \"network_id\": \"<string>\"\n          }\n        }\n      ]\n    },\n    {\n      \"duration\": \"<integer>\",\n      \"departure_time\": \"<dateTime>\",\n      \"arrival_time\": \"<dateTime>\",\n      \"legs\": [\n        {\n          \"mode\": \"rail\",\n          \"distance\": \"<number>\",\n          \"duration\": \"<integer>\",\n          \"departure_time\": \"<dateTime>\",\n          \"arrival_time\": \"<dateTime>\",\n          \"from_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"route\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"tram\",\n            \"color\": \"<string>\",\n            \"text_color\": \"<string>\",\n            \"network_id\": \"<string>\"\n          }\n        },\n        {\n          \"mode\": \"walk\",\n          \"distance\": \"<number>\",\n          \"duration\": \"<integer>\",\n          \"departure_time\": \"<dateTime>\",\n          \"arrival_time\": \"<dateTime>\",\n          \"from_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"to_stop\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"lat\": \"<float>\",\n            \"lon\": \"<float>\",\n            \"wheelchair_accessible\": \"<boolean>\",\n            \"routes\": [\n              \"<string>\",\n              \"<string>\"\n            ]\n          },\n          \"route\": {\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"type\": \"gondola\",\n            \"color\": \"<string>\",\n            \"text_color\": \"<string>\",\n            \"network_id\": \"<string>\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:07:19.000Z",
+                  "updatedAt": "2026-10-21T21:07:19.000Z",
+                  "uid": "35240-b5fd542c-df9b-47a2-ae50-55a2ac27adc3"
+                },
+                {
+                  "id": "abdd5213-75d4-47cb-8050-65d8ced86bae",
+                  "name": "Unauthorized - invalid or missing API key",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/trip?origin_lat=<float>&origin_lon=<float>&destination_lat=<float>&destination_lon=<float>&time=<dateTime>&arrive_by=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "trip"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Origin latitude",
+                          "key": "origin_lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Origin longitude",
+                          "key": "origin_lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Destination latitude",
+                          "key": "destination_lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Destination longitude",
+                          "key": "destination_lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Departure or arrival time (ISO 8601)",
+                          "key": "time",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Whether time represents arrival time",
+                          "key": "arrive_by",
+                          "value": "false"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T21:07:19.000Z",
+                  "updatedAt": "2026-10-21T21:07:19.000Z",
+                  "uid": "35240-abdd5213-75d4-47cb-8050-65d8ced86bae"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T21:07:19.000Z",
+              "updatedAt": "2026-10-21T21:07:19.000Z",
+              "uid": "35240-4cd9e97c-d2dd-4501-9f57-4c3027907f38"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5b2d64b3-2cae-4bac-aea9-6211060b7a4d",
+          "createdAt": "2026-10-21T21:07:19.000Z",
+          "updatedAt": "2026-10-21T21:07:19.000Z",
+          "uid": "35240-5b2d64b3-2cae-4bac-aea9-6211060b7a4d"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-doc.transitapp.com",
-      "key": "baseUrl"
+      "id": "f47a8e35-b92b-4805-89ea-ead2d63dc2c9",
+      "createdAt": "2026-10-21T21:07:19.000Z",
+      "updatedAt": "2026-10-21T21:07:19.000Z",
+      "uid": "35240-f47a8e35-b92b-4805-89ea-ead2d63dc2c9"
     }
   ],
   "auth": {
@@ -232,25 +239,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "249d3308-7c14-40b7-a4c4-99087ca8235c",
-    "name": "Transit Alerts Trips API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-doc.transitapp.com"
     }
-  }
+  ]
 }

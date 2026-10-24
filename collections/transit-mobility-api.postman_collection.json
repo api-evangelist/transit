@@ -1,188 +1,192 @@
 {
+  "info": {
+    "_postman_id": "0a9b132f-c0e6-4fc1-a8d3-77bcdc01d82a",
+    "name": "Transit Mobility API",
+    "description": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:06:55.000Z",
+    "updatedAt": "2026-10-21T21:06:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0a9b132f-c0e6-4fc1-a8d3-77bcdc01d82a"
+  },
   "item": [
     {
-      "id": "8ca56bcd-d5d7-480f-8f0a-936f644f0d6d",
-      "name": "Mobility",
-      "description": {
-        "content": "Shared bikes, scooters, and carshares",
-        "type": "text/plain"
-      },
+      "name": "public",
       "item": [
         {
-          "id": "fc90b408-eb4a-4735-ae36-2f81c2ac1651",
-          "name": "Get Nearby Vehicles",
-          "request": {
-            "name": "Get Nearby Vehicles",
-            "description": {
-              "content": "Returns real-time vehicle positions and shared mobility options (bikes, scooters, carshares) near a geographic location.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "public",
-                "nearby_vehicles"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "lat",
-                  "value": "<float>",
-                  "description": "(Required) Latitude of the location"
-                },
-                {
-                  "disabled": false,
-                  "key": "lon",
-                  "value": "<float>",
-                  "description": "(Required) Longitude of the location"
-                },
-                {
-                  "disabled": false,
-                  "key": "radius",
-                  "value": "500",
-                  "description": "Search radius in meters"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "nearby_vehicles",
+          "item": [
             {
-              "id": "5468199e-d33f-48e8-b13f-82e669f0e0af",
-              "name": "Successful response with nearby vehicles and mobility options",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "public",
-                    "nearby_vehicles"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "lat",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "lon",
-                      "value": "<float>"
-                    },
-                    {
-                      "key": "radius",
-                      "value": "500"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Get Nearby Vehicles",
+              "id": "e2732bb4-abd0-422e-addd-f1ceb6db1068",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"vehicles\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 7465.675744310807,\n      \"lon\": 9234.458236862178,\n      \"bearing\": 4792.771987094434,\n      \"route_id\": \"string\",\n      \"trip_id\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 8679.620417812563,\n      \"lon\": 5741.1788723268055,\n      \"bearing\": 6131.741539194419,\n      \"route_id\": \"string\",\n      \"trip_id\": \"string\"\n    }\n  ],\n  \"bikes\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 130.4715202897344,\n      \"lon\": 3273.35687904453,\n      \"battery_level\": 8370,\n      \"provider\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 8553.915768138148,\n      \"lon\": 2134.230036783431,\n      \"battery_level\": 2730,\n      \"provider\": \"string\"\n    }\n  ],\n  \"scooters\": [\n    {\n      \"id\": \"string\",\n      \"lat\": 9384.36610937149,\n      \"lon\": 9381.476161079088,\n      \"battery_level\": 98,\n      \"provider\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"lat\": 9478.811619841372,\n      \"lon\": 5077.042578297504,\n      \"battery_level\": 3875,\n      \"provider\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "fc179be0-037b-4b5e-858b-4afbc5e3a606",
-              "name": "Unauthorized - invalid or missing API key",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/public/nearby_vehicles?lat=<float>&lon=<float>&radius=500",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "public",
                     "nearby_vehicles"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "(Required) Latitude of the location",
                       "key": "lat",
                       "value": "<float>"
                     },
                     {
+                      "description": "(Required) Longitude of the location",
                       "key": "lon",
                       "value": "<float>"
                     },
                     {
+                      "description": "Search radius in meters",
                       "key": "radius",
                       "value": "500"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns real-time vehicle positions and shared mobility options (bikes, scooters, carshares) near a geographic location."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "id": "996439e2-d973-4922-9eab-7ef7eb2ba5ba",
+                  "name": "Successful response with nearby vehicles and mobility options",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/nearby_vehicles?lat=<float>&lon=<float>&radius=500",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "nearby_vehicles"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude of the location",
+                          "key": "lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Longitude of the location",
+                          "key": "lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Search radius in meters",
+                          "key": "radius",
+                          "value": "500"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"vehicles\": [\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"bearing\": \"<number>\",\n      \"route_id\": \"<string>\",\n      \"trip_id\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"bearing\": \"<number>\",\n      \"route_id\": \"<string>\",\n      \"trip_id\": \"<string>\"\n    }\n  ],\n  \"bikes\": [\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"battery_level\": \"<integer>\",\n      \"provider\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"battery_level\": \"<integer>\",\n      \"provider\": \"<string>\"\n    }\n  ],\n  \"scooters\": [\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"battery_level\": \"<integer>\",\n      \"provider\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"lat\": \"<float>\",\n      \"lon\": \"<float>\",\n      \"battery_level\": \"<integer>\",\n      \"provider\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:06:56.000Z",
+                  "updatedAt": "2026-10-21T21:06:56.000Z",
+                  "uid": "35240-996439e2-d973-4922-9eab-7ef7eb2ba5ba"
+                },
+                {
+                  "id": "e682a6ed-8c13-4af2-954d-171d63b79653",
+                  "name": "Unauthorized - invalid or missing API key",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "Authorization",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/nearby_vehicles?lat=<float>&lon=<float>&radius=500",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "nearby_vehicles"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude of the location",
+                          "key": "lat",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "(Required) Longitude of the location",
+                          "key": "lon",
+                          "value": "<float>"
+                        },
+                        {
+                          "description": "Search radius in meters",
+                          "key": "radius",
+                          "value": "500"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-10-21T21:06:56.000Z",
+                  "updatedAt": "2026-10-21T21:06:56.000Z",
+                  "uid": "35240-e682a6ed-8c13-4af2-954d-171d63b79653"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "createdAt": "2026-10-21T21:06:56.000Z",
+              "updatedAt": "2026-10-21T21:06:56.000Z",
+              "uid": "35240-e2732bb4-abd0-422e-addd-f1ceb6db1068"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7af8df1a-ffc4-4f14-9d39-98a068d70998",
+          "createdAt": "2026-10-21T21:06:56.000Z",
+          "updatedAt": "2026-10-21T21:06:56.000Z",
+          "uid": "35240-7af8df1a-ffc4-4f14-9d39-98a068d70998"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://api-doc.transitapp.com",
-      "key": "baseUrl"
+      "id": "916d88fd-90f9-41e3-a863-caeefc290ce2",
+      "createdAt": "2026-10-21T21:06:56.000Z",
+      "updatedAt": "2026-10-21T21:06:56.000Z",
+      "uid": "35240-916d88fd-90f9-41e3-a863-caeefc290ce2"
     }
   ],
   "auth": {
@@ -190,25 +194,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fb5ad099-e2e9-4b61-9fd7-e51247405da5",
-    "name": "Transit Alerts Mobility API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The Transit API provides real-time public transit data including live departures, trip planning, wheelchair accessibility information, service alerts, and shared mobility availability across 900 cities in 25 countries.\n\nContact Support:\n Name: Transit Partnership Team\n Email: partners+website@transit.app",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api-doc.transitapp.com"
     }
-  }
+  ]
 }

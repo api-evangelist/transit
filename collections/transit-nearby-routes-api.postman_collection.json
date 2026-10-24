@@ -1,0 +1,327 @@
+{
+  "info": {
+    "_postman_id": "af126055-eca1-42fd-8185-e4975df11f0e",
+    "name": "Transit Locations Nearby Routes API",
+    "description": "The Transit API delivers real-time public transit data - nearby routes and stops, stop departures, route details, multimodal trip planning, and service alerts - across 1,100+ cities in 37 countries, plus shared-mobility availability for bikes, scooters, and carshare.\n\nContact Support:\n Name: Transit Partnerships\n Email: partners@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:28.000Z",
+    "updatedAt": "2026-10-21T21:07:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-af126055-eca1-42fd-8185-e4975df11f0e"
+  },
+  "item": [
+    {
+      "name": "public",
+      "item": [
+        {
+          "name": "nearby_routes",
+          "item": [
+            {
+              "name": "Get nearby routes",
+              "id": "f076c4ad-0bd2-4c9c-a306-e6498388d0c2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Preferred response language (BCP 47), e.g. en, fr, es.",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/public/nearby_routes?lat=<double>&lon=<double>&max_distance=500&should_update_realtime=true",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public",
+                    "nearby_routes"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Latitude of the search center (WGS84 decimal degrees).",
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "(Required) Longitude of the search center (WGS84 decimal degrees).",
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "description": "Maximum search radius in meters.",
+                      "key": "max_distance",
+                      "value": "500"
+                    },
+                    {
+                      "description": "When true, include live real-time departure predictions.",
+                      "key": "should_update_realtime",
+                      "value": "true"
+                    }
+                  ]
+                },
+                "description": "Returns the public transit routes near a latitude/longitude, each with upcoming real-time departures, direction and headsign, wheelchair accessibility, and network branding."
+              },
+              "response": [
+                {
+                  "id": "71275609-dd2e-411a-802d-85b16c1c92b9",
+                  "name": "A list of nearby routes with departures.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47), e.g. en, fr, es.",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/nearby_routes?lat=<double>&lon=<double>&max_distance=500&should_update_realtime=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "nearby_routes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude of the search center (WGS84 decimal degrees).",
+                          "key": "lat",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude of the search center (WGS84 decimal degrees).",
+                          "key": "lon",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Maximum search radius in meters.",
+                          "key": "max_distance",
+                          "value": "500"
+                        },
+                        {
+                          "description": "When true, include live real-time departure predictions.",
+                          "key": "should_update_realtime",
+                          "value": "true"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"routes\": [\n    {\n      \"global_route_id\": \"<string>\",\n      \"route_short_name\": \"<string>\",\n      \"route_long_name\": \"<string>\",\n      \"route_color\": \"<string>\",\n      \"route_text_color\": \"<string>\",\n      \"mode_name\": \"<string>\",\n      \"itineraries\": [\n        {\n          \"duration\": \"<integer>\",\n          \"start_time\": \"<integer>\",\n          \"end_time\": \"<integer>\",\n          \"legs\": [\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            },\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            }\n          ]\n        },\n        {\n          \"duration\": \"<integer>\",\n          \"start_time\": \"<integer>\",\n          \"end_time\": \"<integer>\",\n          \"legs\": [\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            },\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            }\n          ]\n        }\n      ]\n    },\n    {\n      \"global_route_id\": \"<string>\",\n      \"route_short_name\": \"<string>\",\n      \"route_long_name\": \"<string>\",\n      \"route_color\": \"<string>\",\n      \"route_text_color\": \"<string>\",\n      \"mode_name\": \"<string>\",\n      \"itineraries\": [\n        {\n          \"duration\": \"<integer>\",\n          \"start_time\": \"<integer>\",\n          \"end_time\": \"<integer>\",\n          \"legs\": [\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            },\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            }\n          ]\n        },\n        {\n          \"duration\": \"<integer>\",\n          \"start_time\": \"<integer>\",\n          \"end_time\": \"<integer>\",\n          \"legs\": [\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            },\n            {\n              \"mode\": \"<string>\",\n              \"from\": \"<string>\",\n              \"to\": \"<string>\",\n              \"route_short_name\": \"<string>\",\n              \"duration\": \"<integer>\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:07:29.000Z",
+                  "updatedAt": "2026-10-21T21:07:29.000Z",
+                  "uid": "35240-71275609-dd2e-411a-802d-85b16c1c92b9"
+                },
+                {
+                  "id": "37f87ef3-805c-4565-ae6a-24e586db5f35",
+                  "name": "Missing or invalid API key.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47), e.g. en, fr, es.",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/nearby_routes?lat=<double>&lon=<double>&max_distance=500&should_update_realtime=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "nearby_routes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude of the search center (WGS84 decimal degrees).",
+                          "key": "lat",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude of the search center (WGS84 decimal degrees).",
+                          "key": "lon",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Maximum search radius in meters.",
+                          "key": "max_distance",
+                          "value": "500"
+                        },
+                        {
+                          "description": "When true, include live real-time departure predictions.",
+                          "key": "should_update_realtime",
+                          "value": "true"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:29.000Z",
+                  "updatedAt": "2026-10-21T21:07:29.000Z",
+                  "uid": "35240-37f87ef3-805c-4565-ae6a-24e586db5f35"
+                },
+                {
+                  "id": "17b4c5b1-e1fa-418b-b5db-1615c6c02591",
+                  "name": "Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47), e.g. en, fr, es.",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/nearby_routes?lat=<double>&lon=<double>&max_distance=500&should_update_realtime=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "nearby_routes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Latitude of the search center (WGS84 decimal degrees).",
+                          "key": "lat",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "(Required) Longitude of the search center (WGS84 decimal degrees).",
+                          "key": "lon",
+                          "value": "<double>"
+                        },
+                        {
+                          "description": "Maximum search radius in meters.",
+                          "key": "max_distance",
+                          "value": "500"
+                        },
+                        {
+                          "description": "When true, include live real-time departure predictions.",
+                          "key": "should_update_realtime",
+                          "value": "true"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:29.000Z",
+                  "updatedAt": "2026-10-21T21:07:29.000Z",
+                  "uid": "35240-17b4c5b1-e1fa-418b-b5db-1615c6c02591"
+                }
+              ],
+              "createdAt": "2026-10-21T21:07:29.000Z",
+              "updatedAt": "2026-10-21T21:07:29.000Z",
+              "uid": "35240-f076c4ad-0bd2-4c9c-a306-e6498388d0c2"
+            }
+          ],
+          "id": "8b7c2886-ee2d-42a9-bf67-353fe654c446",
+          "createdAt": "2026-10-21T21:07:29.000Z",
+          "updatedAt": "2026-10-21T21:07:29.000Z",
+          "uid": "35240-8b7c2886-ee2d-42a9-bf67-353fe654c446"
+        }
+      ],
+      "id": "7c1e6848-edb0-465a-af28-14caede8658a",
+      "createdAt": "2026-10-21T21:07:29.000Z",
+      "updatedAt": "2026-10-21T21:07:29.000Z",
+      "uid": "35240-7c1e6848-edb0-465a-af28-14caede8658a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.transitapp.com/v3"
+    }
+  ]
+}

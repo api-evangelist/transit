@@ -1,0 +1,267 @@
+{
+  "info": {
+    "_postman_id": "6d07511d-13b8-4c93-911b-2cef6faa41c4",
+    "name": "Transit Locations Route Details API",
+    "description": "The Transit API delivers real-time public transit data - nearby routes and stops, stop departures, route details, multimodal trip planning, and service alerts - across 1,100+ cities in 37 countries, plus shared-mobility availability for bikes, scooters, and carshare.\n\nContact Support:\n Name: Transit Partnerships\n Email: partners@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:40.000Z",
+    "updatedAt": "2026-10-21T21:07:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d07511d-13b8-4c93-911b-2cef6faa41c4"
+  },
+  "item": [
+    {
+      "name": "public",
+      "item": [
+        {
+          "name": "route_details",
+          "item": [
+            {
+              "name": "Get route details",
+              "id": "dff96e63-3be9-4bdb-a64b-91973738dc59",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Preferred response language (BCP 47).",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/public/route_details?global_route_id=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "public",
+                    "route_details"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The stable global route identifier.",
+                      "key": "global_route_id",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns the detail for a specific route identified by its global_route_id - its itineraries/directions, the ordered list of stops, path geometry, and branding."
+              },
+              "response": [
+                {
+                  "id": "90304271-8010-4946-bb71-a7d7ea0c7ef0",
+                  "name": "Route detail with itineraries, stops, and geometry.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/route_details?global_route_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "route_details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The stable global route identifier.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"global_route_id\": \"<string>\",\n  \"route_short_name\": \"<string>\",\n  \"route_long_name\": \"<string>\",\n  \"itineraries\": [\n    {\n      \"direction_id\": \"<integer>\",\n      \"headsign\": \"<string>\",\n      \"stops\": [\n        {\n          \"global_stop_id\": \"<string>\",\n          \"stop_name\": \"<string>\",\n          \"stop_lat\": \"<double>\",\n          \"stop_lon\": \"<double>\",\n          \"distance\": \"<integer>\",\n          \"wheelchair_boarding\": \"<boolean>\",\n          \"route_type\": \"<integer>\"\n        },\n        {\n          \"global_stop_id\": \"<string>\",\n          \"stop_name\": \"<string>\",\n          \"stop_lat\": \"<double>\",\n          \"stop_lon\": \"<double>\",\n          \"distance\": \"<integer>\",\n          \"wheelchair_boarding\": \"<boolean>\",\n          \"route_type\": \"<integer>\"\n        }\n      ],\n      \"shape\": \"<string>\"\n    },\n    {\n      \"direction_id\": \"<integer>\",\n      \"headsign\": \"<string>\",\n      \"stops\": [\n        {\n          \"global_stop_id\": \"<string>\",\n          \"stop_name\": \"<string>\",\n          \"stop_lat\": \"<double>\",\n          \"stop_lon\": \"<double>\",\n          \"distance\": \"<integer>\",\n          \"wheelchair_boarding\": \"<boolean>\",\n          \"route_type\": \"<integer>\"\n        },\n        {\n          \"global_stop_id\": \"<string>\",\n          \"stop_name\": \"<string>\",\n          \"stop_lat\": \"<double>\",\n          \"stop_lon\": \"<double>\",\n          \"distance\": \"<integer>\",\n          \"wheelchair_boarding\": \"<boolean>\",\n          \"route_type\": \"<integer>\"\n        }\n      ],\n      \"shape\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-10-21T21:07:40.000Z",
+                  "updatedAt": "2026-10-21T21:07:40.000Z",
+                  "uid": "35240-90304271-8010-4946-bb71-a7d7ea0c7ef0"
+                },
+                {
+                  "id": "f267b38f-5340-4a0f-abfd-5c3bbe30bb2d",
+                  "name": "Missing or invalid API key.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/route_details?global_route_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "route_details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The stable global route identifier.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:40.000Z",
+                  "updatedAt": "2026-10-21T21:07:40.000Z",
+                  "uid": "35240-f267b38f-5340-4a0f-abfd-5c3bbe30bb2d"
+                },
+                {
+                  "id": "2609781a-f3b8-4092-8173-12ca5eb1a425",
+                  "name": "Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/public/route_details?global_route_id=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "public",
+                        "route_details"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The stable global route identifier.",
+                          "key": "global_route_id",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:40.000Z",
+                  "updatedAt": "2026-10-21T21:07:40.000Z",
+                  "uid": "35240-2609781a-f3b8-4092-8173-12ca5eb1a425"
+                }
+              ],
+              "createdAt": "2026-10-21T21:07:40.000Z",
+              "updatedAt": "2026-10-21T21:07:40.000Z",
+              "uid": "35240-dff96e63-3be9-4bdb-a64b-91973738dc59"
+            }
+          ],
+          "id": "6a62f265-f76f-4f13-b8f2-422343002bfb",
+          "createdAt": "2026-10-21T21:07:40.000Z",
+          "updatedAt": "2026-10-21T21:07:40.000Z",
+          "uid": "35240-6a62f265-f76f-4f13-b8f2-422343002bfb"
+        }
+      ],
+      "id": "d67b4875-651e-494e-a260-145398ff11ad",
+      "createdAt": "2026-10-21T21:07:40.000Z",
+      "updatedAt": "2026-10-21T21:07:40.000Z",
+      "uid": "35240-d67b4875-651e-494e-a260-145398ff11ad"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.transitapp.com/v3"
+    }
+  ]
+}

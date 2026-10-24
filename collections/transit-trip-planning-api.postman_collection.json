@@ -1,0 +1,367 @@
+{
+  "info": {
+    "_postman_id": "d74ae2b3-2c11-4cd2-8ae3-81980632eaad",
+    "name": "Transit Locations Trip Planning API",
+    "description": "The Transit API delivers real-time public transit data - nearby routes and stops, stop departures, route details, multimodal trip planning, and service alerts - across 1,100+ cities in 37 countries, plus shared-mobility availability for bikes, scooters, and carshare.\n\nContact Support:\n Name: Transit Partnerships\n Email: partners@transit.app",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T21:07:53.000Z",
+    "updatedAt": "2026-10-21T21:07:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d74ae2b3-2c11-4cd2-8ae3-81980632eaad"
+  },
+  "item": [
+    {
+      "name": "otp",
+      "item": [
+        {
+          "name": "plan",
+          "item": [
+            {
+              "name": "Plan a multimodal trip",
+              "id": "5279ed4b-5702-4ece-b9d6-7fc06ed006d7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Preferred response language (BCP 47).",
+                    "key": "Accept-Language",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/otp/plan?fromPlace=<string>&toPlace=<string>&date=<date>&time=<string>&arriveBy=false&mode=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "otp",
+                    "plan"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Origin as \"lat,lon\".",
+                      "key": "fromPlace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) Destination as \"lat,lon\".",
+                      "key": "toPlace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Travel date (YYYY-MM-DD). Defaults to today.",
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "description": "Travel time (HH:MM). Defaults to now.",
+                      "key": "time",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "When true, treat date/time as the desired arrival time.",
+                      "key": "arriveBy",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Comma-separated modes, e.g. TRANSIT,WALK,BICYCLE.",
+                      "key": "mode",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Multimodal trip planning between an origin and a destination, returning ranked itineraries that combine public transit with walking, biking, and shared mobility. Built on an OpenTripPlanner-style plan surface."
+              },
+              "response": [
+                {
+                  "id": "c2eb2ff3-c677-4b40-9410-da1fb72e8f1b",
+                  "name": "Ranked trip itineraries.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/otp/plan?fromPlace=<string>&toPlace=<string>&date=<date>&time=<string>&arriveBy=false&mode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "otp",
+                        "plan"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Origin as \"lat,lon\".",
+                          "key": "fromPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Destination as \"lat,lon\".",
+                          "key": "toPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Travel date (YYYY-MM-DD). Defaults to today.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Travel time (HH:MM). Defaults to now.",
+                          "key": "time",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When true, treat date/time as the desired arrival time.",
+                          "key": "arriveBy",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Comma-separated modes, e.g. TRANSIT,WALK,BICYCLE.",
+                          "key": "mode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"plan\": {\n    \"itineraries\": [\n      {\n        \"duration\": \"<integer>\",\n        \"start_time\": \"<integer>\",\n        \"end_time\": \"<integer>\",\n        \"legs\": [\n          {\n            \"mode\": \"<string>\",\n            \"from\": \"<string>\",\n            \"to\": \"<string>\",\n            \"route_short_name\": \"<string>\",\n            \"duration\": \"<integer>\"\n          },\n          {\n            \"mode\": \"<string>\",\n            \"from\": \"<string>\",\n            \"to\": \"<string>\",\n            \"route_short_name\": \"<string>\",\n            \"duration\": \"<integer>\"\n          }\n        ]\n      },\n      {\n        \"duration\": \"<integer>\",\n        \"start_time\": \"<integer>\",\n        \"end_time\": \"<integer>\",\n        \"legs\": [\n          {\n            \"mode\": \"<string>\",\n            \"from\": \"<string>\",\n            \"to\": \"<string>\",\n            \"route_short_name\": \"<string>\",\n            \"duration\": \"<integer>\"\n          },\n          {\n            \"mode\": \"<string>\",\n            \"from\": \"<string>\",\n            \"to\": \"<string>\",\n            \"route_short_name\": \"<string>\",\n            \"duration\": \"<integer>\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-10-21T21:07:53.000Z",
+                  "updatedAt": "2026-10-21T21:07:53.000Z",
+                  "uid": "35240-c2eb2ff3-c677-4b40-9410-da1fb72e8f1b"
+                },
+                {
+                  "id": "006566d3-4b46-48c3-a42c-bb2119725e85",
+                  "name": "Missing or invalid API key.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/otp/plan?fromPlace=<string>&toPlace=<string>&date=<date>&time=<string>&arriveBy=false&mode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "otp",
+                        "plan"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Origin as \"lat,lon\".",
+                          "key": "fromPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Destination as \"lat,lon\".",
+                          "key": "toPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Travel date (YYYY-MM-DD). Defaults to today.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Travel time (HH:MM). Defaults to now.",
+                          "key": "time",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When true, treat date/time as the desired arrival time.",
+                          "key": "arriveBy",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Comma-separated modes, e.g. TRANSIT,WALK,BICYCLE.",
+                          "key": "mode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:53.000Z",
+                  "updatedAt": "2026-10-21T21:07:53.000Z",
+                  "uid": "35240-006566d3-4b46-48c3-a42c-bb2119725e85"
+                },
+                {
+                  "id": "954b19c6-80cd-4eea-b186-d0ce1f5a6626",
+                  "name": "Rate limit exceeded (free tier is 5 requests/minute, 1,500/month).",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Preferred response language (BCP 47).",
+                        "key": "Accept-Language",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "apiKey",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/otp/plan?fromPlace=<string>&toPlace=<string>&date=<date>&time=<string>&arriveBy=false&mode=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "otp",
+                        "plan"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Origin as \"lat,lon\".",
+                          "key": "fromPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) Destination as \"lat,lon\".",
+                          "key": "toPlace",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Travel date (YYYY-MM-DD). Defaults to today.",
+                          "key": "date",
+                          "value": "<date>"
+                        },
+                        {
+                          "description": "Travel time (HH:MM). Defaults to now.",
+                          "key": "time",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "When true, treat date/time as the desired arrival time.",
+                          "key": "arriveBy",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Comma-separated modes, e.g. TRANSIT,WALK,BICYCLE.",
+                          "key": "mode",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Too Many Requests",
+                  "code": 429,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"status\": \"<integer>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-10-21T21:07:53.000Z",
+                  "updatedAt": "2026-10-21T21:07:53.000Z",
+                  "uid": "35240-954b19c6-80cd-4eea-b186-d0ce1f5a6626"
+                }
+              ],
+              "createdAt": "2026-10-21T21:07:53.000Z",
+              "updatedAt": "2026-10-21T21:07:53.000Z",
+              "uid": "35240-5279ed4b-5702-4ece-b9d6-7fc06ed006d7"
+            }
+          ],
+          "id": "95084f36-62ea-4b21-9491-83ca130e055f",
+          "createdAt": "2026-10-21T21:07:53.000Z",
+          "updatedAt": "2026-10-21T21:07:53.000Z",
+          "uid": "35240-95084f36-62ea-4b21-9491-83ca130e055f"
+        }
+      ],
+      "id": "6028d53f-9d38-463c-87a6-d06b60901a0e",
+      "createdAt": "2026-10-21T21:07:53.000Z",
+      "updatedAt": "2026-10-21T21:07:53.000Z",
+      "uid": "35240-6028d53f-9d38-463c-87a6-d06b60901a0e"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://external.transitapp.com/v3"
+    }
+  ]
+}
