@@ -1,4 +1,4 @@
-# Transit (transit)
+# Transit
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,104 +66,178 @@
 
 Transit ("The world's most accurate transit app") provides real-time public transit data, multimodal trip planning, and shared mobility across 1,000+ cities including New York, Paris, London, and Montreal, partnering with 180+ transit agencies. The platform aggregates trains, buses, bikes, scooters, and carshares with crowdsourced GO real-time signals, ships a freemium partner API (5 calls/minute, 1,500 calls/month), and monetizes consumers via the Transit Royale subscription ($2/month billed annually).
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/transit/refs/heads/main/apis.yml)
+**Areas:** Transit · Public Transit · Real-Time · Trip Planning · Multi-Modal · GTFS · GOFS · Mobility · Shared Mobility
 
-## Scope
+## Transit on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Transit is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/transit/](https://apis.io/providers/transit/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (14)
 
-- Public Transit
-- Real-Time
-- Trip Planning
-- Multimodal
-- GTFS
-- GOFS
-- Mobility
-- Shared Mobility
+- [Transit URL Scheme](https://apis.io/apis/transit/url-scheme/) — Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and nearby-routes hand-offs without requiring…
+- [Transit Alerts API](https://apis.io/apis/transit/transit-alerts-api/) — Service alerts and disruptions
+- [Transit Departures API](https://apis.io/apis/transit/transit-departures-api/) — Real-time and scheduled transit departure information
+- [Transit Mobility API](https://apis.io/apis/transit/transit-mobility-api/) — Shared bikes, scooters, and carshares
+- [Transit Networks API](https://apis.io/apis/transit/transit-networks-api/) — Transit network and agency data
+- [Transit Routes API](https://apis.io/apis/transit/transit-routes-api/) — Route information and schedules
+- [Transit Stops API](https://apis.io/apis/transit/transit-stops-api/) — Stop and station information
+- [Transit Trips API](https://apis.io/apis/transit/transit-trips-api/) — Multimodal trip planning and results
+- [Transit Locations API](https://apis.io/apis/transit/transit-locations-api/) — Available transit networks and coverage near a location.
+- [Transit Nearby Routes API](https://apis.io/apis/transit/transit-nearby-routes-api/) — Public transit routes near a location with real-time departures.
+- [Transit Nearby Stops API](https://apis.io/apis/transit/transit-nearby-stops-api/) — Public transit stops near a location.
+- [Transit Route Details API](https://apis.io/apis/transit/transit-route-details-api/) — Itineraries, stops, and geometry for a specific route.
+- [Transit Service Alerts API](https://apis.io/apis/transit/transit-service-alerts-api/) — Service alerts and disruptions for routes, stops, and networks.
+- [Transit Trip Planning API](https://apis.io/apis/transit/transit-trip-planning-api/) — Multimodal origin-to-destination trip planning.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-05-02
-- **Modified:** 2026-05-23
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Transit API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Transit API delivers real-time transit departures, wheelchair accessibility details, service alerts, bike/scooter/carshare availability, and multimodal trip planning across 1,000+ cities in 25 countries. Access is gated by a request form; approved keys get 5 calls per minute and 1,500 calls per month free, with higher volumes negotiated through the partnerships team.
+- [Transit Agentic Access](https://apis.io/agentic-access/transit/transit-agentic-access/)
 
-- **Human URL:** [https://transitapp.com/apis](https://transitapp.com/apis)
-- **Base URL:** `https://api-doc.transitapp.com`
+#### JSON Schema (2)
 
-#### Tags
+The data models the API reads and writes.
 
-- Public Transit
-- Real-Time
-- Trip Planning
-- GTFS
-- Multimodal
-- Mobility
-- Shared Mobility
+- [Transit Departure](https://apis.io/schemas/transit/transit-departure/)
+- [Transit Stop](https://apis.io/schemas/transit/transit-stop/)
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://api-doc.transitapp.com/)
-- [OpenAPI](openapi/transit-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/transit.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/transit.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/transit-stop-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/transit-departure-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/transit-stop-structure.json)
-- [JSON-LD](json-ld/transit-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Spectral Rules](rules/transit-rules.yml)
-- [Vocabulary](vocabulary/transit-vocabulary.yml)
-- [Plans](plans/transit-plans-pricing.yml)
-- [Rate Limits](rate-limits/transit-rate-limits.yml)
-- [Fin Ops](finops/transit-finops.yml)
-- [Sign Up](https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform)
-- [G T F S Guidelines](https://resources.transitapp.com/article/458-guidelines-for-producing-gtfs-static-data-for-transit)
+Data models expressed in JSON Structure.
 
-### Transit URL Scheme
+- [Transit Stop Structure](https://apis.io/json-structure/transit/transit-stop-structure/)
 
-Deep-link URL scheme for launching the Transit mobile app from partner apps and websites. Supports directions and nearby-routes hand-offs without requiring an API key.
+#### JSON-LD (1)
 
-- **Human URL:** [https://transitapp.com/apis](https://transitapp.com/apis)
-- **Base URL:** `transit://`
+Linked-data contexts for the provider's vocabulary.
 
-#### Tags
+- [Transit Context](https://apis.io/jsonld/transit/transit-context/)
 
-- Deep Linking
-- Mobile
-- URL Scheme
-- Public Transit
+#### Vocabulary (1)
 
-#### Properties
+The provider's domain terms, defined.
 
-- [Documentation](https://transitapp.com/apis)
-- [Postman Collection](collections/transit.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/transit.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Transit Vocabulary](https://apis.io/vocabularies/transit/transit-vocabulary/)
 
-## Common Properties
+#### Examples (2)
+
+Example requests and responses.
+
+- [Transit Get Stop Departures Example](https://apis.io/examples/transit/transit-get-stop-departures-example/)
+- [Transit Plan Trip Example](https://apis.io/examples/transit/transit-plan-trip-example/)
+
+#### Collections (9)
+
+Postman and Open Collection request collections.
+
+- [Transit API](https://apis.io/collections/transit/open-transit/)
+- [Transit Alerts API](https://apis.io/collections/transit/open-transit-alerts-api/)
+- [Transit Alerts Departures API](https://apis.io/collections/transit/open-transit-departures-api/)
+- [Transit Alerts Mobility API](https://apis.io/collections/transit/open-transit-mobility-api/)
+- [Transit Alerts Networks API](https://apis.io/collections/transit/open-transit-networks-api/)
+- [Transit Alerts Routes API](https://apis.io/collections/transit/open-transit-routes-api/)
+- [Transit Alerts Stops API](https://apis.io/collections/transit/open-transit-stops-api/)
+- [Transit Alerts Trips API](https://apis.io/collections/transit/open-transit-trips-api/)
+- [Transit API](https://apis.io/collections/transit/open-transitapp/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Transit — jsonschema rules](https://apis.io/rules/transit/transit-jsonschema-spectral-rules/)
+- [Transit API Rules](https://apis.io/rules/transit/transit-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Transit Authentication](https://apis.io/security/transit/transit-authentication/)
+- [Transit Domain Security](https://apis.io/security/transit/transit-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Transit Plans Pricing](https://apis.io/plans/transit/transit-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Transit Rate Limits](https://apis.io/rate-limits/transit/transit-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Transit Finops](https://apis.io/finops/transit/transit-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://transitapp.com/)
 - [Documentation](https://transitapp.com/apis)
-- [A P I Documentation](https://api-doc.transitapp.com/)
-- [Git Hub](https://github.com/TransitApp)
-- [Blog](https://blog.transitapp.com/)
-- [Blog Feed](https://blog.transitapp.com/feed/)
-- [Support](https://help.transitapp.com/)
-- [Careers](https://transitapp.com/careers)
-- [Press](https://transitapp.com/press)
 - [Pricing](https://transitapp.com/apis)
-- [Sign Up](https://docs.google.com/forms/d/e/1FAIpQLScZbUsb1G1gRzIkEQo4FuuAbfzQbldTvu6-62j_pSRWPtKZiA/viewform)
-- [Contact Sales](mailto:partners+website@transit.app)
-- [Contact General](mailto:info@transit.app)
+- [Support](https://help.transitapp.com/)
+- [Blog](https://blog.transitapp.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 72.3 |
+| Contract quality | 65.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 34.5 |
+| Access clarity | 31.6 |
+
+**Agent readiness 20.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 16.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/transit/](https://apis.io/providers/transit/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Transit: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/transit/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
